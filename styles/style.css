@@ -102,3 +102,9 @@ button:hover {
     background: #c61140;
     transform: scale(1.2);
 }
+
+.day {
+    width: 11;
+    height: 11;
+    fill: rgb(235, 237, 240);
+}
