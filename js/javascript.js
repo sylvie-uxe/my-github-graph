@@ -10,7 +10,7 @@ const contributions = [level0, level1, level2, level3, level4];
 
 const nbDaysInAWeek = 7;
 
-const table = document.getElementById("year");
+const calendar = document.getElementById("calendar");
 const DateTime = luxon.DateTime;
 const Duration = luxon.Duration;
 const originDate = DateTime.local();
@@ -36,7 +36,7 @@ function getMonthFromDate(date) {
 }
 
 window.onload = function () {
-    if(table) {
+    if(calendar) {
         for(let y = 1; y < table.rows.length; y++) {
             // table.rows[y].cells[0].innerHTML = y;
             for(let x = 1; x < table.rows[y].cells.length; x++) {
