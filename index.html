@@ -1,960 +1,504 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head profile="http://www.w3.org/2005/10/profile">
         <title>My Javascript Sandbox</title>
-        <link rel="icon"
-              type="image/png"
-              href="./assets/chloe.png">
-        <link rel="stylesheet"
-              type="text/css"
-              href="./styles/style.css">
+        <link rel="icon" type="image/png" href="./assets/chloe.png">
+        <link rel="stylesheet" type="text/css" href="./styles/style.css">
     </head>
     <body>
         <header>
             <h1>Draw your own Github contribution graph!</h1>
         </header>
         <section>
+            <label for="start-date">I want to start committing on</label>
+            <input type="date" id="start-date" name="start-date" value="" min="">
+            <p id="hovered-date"></p>
+        </section>
+        <section>
+            <h2>Contributions</h2>
             <svg width="828" height="128" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(10, 20)" id="calendar">
                     <g transform="translate(0, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(16, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(15, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(32, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(30, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(48, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(45, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(64, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(60, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(80, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(75, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(96, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(90, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(112, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(105, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(128, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(120, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(144, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(135, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(160, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(150, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(176, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(165, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(192, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(180, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(208, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(195, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(224, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(210, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
+                    </g>
+                    <g transform="translate(225, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
                     <g transform="translate(240, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(256, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(255, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(272, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(270, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(288, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(285, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(304, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(300, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(320, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(315, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(336, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(330, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(352, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(345, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(368, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(360, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(384, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(375, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(400, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(390, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(416, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(405, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(432, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(420, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(448, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(435, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(464, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(450, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
+                    </g>
+                    <g transform="translate(465, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
                     <g transform="translate(480, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(496, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(495, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(512, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(510, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(528, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(525, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(544, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(540, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(560, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(555, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(576, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(570, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(592, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(585, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(608, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(600, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(624, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(615, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(640, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(630, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(656, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(645, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(672, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(660, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(688, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(675, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(704, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(690, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
+                    </g>
+                    <g transform="translate(705, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
                     <g transform="translate(720, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(736, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(735, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(752, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(750, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(768, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(765, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
-                    <g transform="translate(784, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
-                    </g>
-                    <g transform="translate(800, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
-                    </g>
-                    <g transform="translate(816, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
-                    </g>
-                    <g transform="translate(832, 0)">
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="0"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="15"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="30"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="45"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="60"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="75"/>
-                        <rect class="day" rx="2" ry="2" width="11" height="11" x="0" y="90"/>
+                    <g transform="translate(780, 0)">
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="0" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="15" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="30" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="45" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="60" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="75" data-count="0" data-date=""/>
+                        <rect class="day" fill="#F5F6F7" rx="2" ry="2" width="11" height="11" x="0" y="90" data-count="0" data-date=""/>
                     </g>
                 </g>
             </svg>
-            <h2>Contributions</h2>
-            <!-- <svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1 2.5A2.5 2.5 0 013.5 0h8.75a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0V1.5h-8a1 1 0 00-1 1v6.708A2.492 2.492 0 013.5 9h3.25a.75.75 0 010 1.5H3.5a1 1 0 100 2h5.75a.75.75 0 010 1.5H3.5A2.5 2.5 0 011 11.5v-9zm13.23 7.79a.75.75 0 001.06-1.06l-2.505-2.505a.75.75 0 00-1.06 0L9.22 9.229a.75.75 0 001.06 1.061l1.225-1.224v6.184a.75.75 0 001.5 0V9.066l1.224 1.224z"></path></svg> -->
-            <table id="year">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button onclick="reset()">Clear</button>
-        </section>
-        <section>
-            <h2>Contribution activity</h2>
+            <p id="error"></p>
+            <button onclick="resetColor()" aria-label="Clear">Clear</button>
         </section>
 
         <script src="./js/luxon.min.js"></script>
