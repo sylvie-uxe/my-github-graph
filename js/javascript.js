@@ -16,33 +16,11 @@ function computeStartDate(date) {
     return date.minus( { days: date.weekday % WEEK_STARTS_ON_DAY });
 }
 
-// function getMonthFromDate(date) {
-//     return date.monthShort();
-// }
+function getMonthFromDate(date) {
+    return date.monthShort;
+}
 
-//         let currentMonth = table.rows[1].cells[1].date.monthShort;
-//         table.rows[0].cells[1].innerHTML = currentMonth;
-//         for(let x = 2; x < table.rows[1].cells.length; x++) {
-//             if(table.rows[1].cells[x].date.monthShort !== currentMonth) {
-//                 currentMonth = table.rows[1].cells[x].date.monthShort;
-//                 table.rows[0].cells[x].innerHTML = currentMonth;
-//             }
-//         }
-
-/* <text x="31" y="-8" class="month">Jan</text>
-<text x="91" y="-8" class="month">Feb</text>
-<text x="151" y="-8" class="month">Mar</text>
-<text x="226" y="-8" class="month">Apr</text>
-<text x="286" y="-8" class="month">May</text>
-<text x="361" y="-8" class="month">Jun</text>
-<text x="421" y="-8" class="month">Jul</text>
-<text x="481" y="-8" class="month">Aug</text>
-<text x="556" y="-8" class="month">Sep</text>
-<text x="616" y="-8" class="month">Oct</text>
-<text x="676" y="-8" class="month">Nov</text>
-<text x="751" y="-8" class="month">Dec</text> */
-
-function toggleColor(element, currentColorIndex) {
+function toggleColor(element) {
     let dataCount = element.getAttribute("data-count");
     dataCount = ++dataCount % colors.length;
     element.setAttribute("data-count", dataCount);
@@ -78,24 +56,34 @@ window.onload = function () {
     const days = document.getElementsByClassName("day");
 
     for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
+        const day = days[dayIndex];
         const date = startDate.plus({ days: dayIndex });
-        days[dayIndex].setAttribute("data-date", date.toISODate());
+        day.setAttribute("data-date", date.toISODate());
 
-        days[dayIndex].onclick = () => {
+        if (date.weekday === WEEK_STARTS_ON_DAY && date.day >= 1 && date.day <= 7) {
+            const month = getMonthFromDate(date);
+            let textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            textElement.setAttribute("class", "month");
+            textElement.setAttribute("y", "-8");
+            textElement.innerHTML = month;
+            day.parentNode.appendChild(textElement);
+        }
+
+        day.onclick = () => {
             if (date < today) {
                 document.getElementById("error").innerHTML = "You cannot select this day because it is in the past.";
             } else {
                 document.getElementById("error").innerHTML = "";
-                toggleColor(days[dayIndex]);
+                toggleColor(day);
             }
         }
-        days[dayIndex].keydown = () => {
-            toggleColor(days[dayIndex]);
+        day.keydown = () => {
+            toggleColor(day);
         }
-        days[dayIndex].onmouseover = () => {
-            document.getElementById("hovered-date").innerHTML = DateTime.fromISO(days[dayIndex].getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+        day.onmouseover = () => {
+            document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
         }
-        days[dayIndex].onmouseout = () => {
+        day.onmouseout = () => {
             document.getElementById("hovered-date").innerHTML = "";
         }
     }
