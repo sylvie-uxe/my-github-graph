@@ -55,6 +55,14 @@ function initStartDate() {
 }
 
 window.onload = function () {
+    const clearButton = document.getElementById("clear");
+    clearButton.onclick = (event) => {
+        resetColor();
+        if (event.target.clientX != 0) {
+            event.target.blur();
+        }
+    }
+
     initStartDate();
 
     const days = document.getElementsByClassName("day");

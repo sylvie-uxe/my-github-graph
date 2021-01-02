@@ -11,7 +11,7 @@
         </header>
         <section>
             <label for="start-date">I want to start committing on</label>
-            <input type="date" id="start-date" name="start-date" value="" min="">
+            <input type="date" id="start-date" name="start-date">
             <p id="hovered-date"></p>
         </section>
         <section>
@@ -500,7 +500,7 @@
                     </g>
                 </g>
             </svg>
-            <button onclick="resetColor()" aria-label="Clear">Clear</button>
+            <button id="clear" aria-label="Clear">Clear</button>
         </section>
 
         <script src="./js/luxon.min.js"></script>

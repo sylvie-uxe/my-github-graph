@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+*:focus {
+    outline: none;
+	box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+}
+
 body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
     line-height: 1.5;
@@ -31,6 +36,7 @@ section {
 svg {
     display: block;
     margin: 0 auto;
+    min-width: min(100%, 1000px);
     max-width: 828px;
     max-height: 128px;
 }
@@ -55,6 +61,7 @@ button {
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
+    color: #24292e;
     text-align: center;
     display: block;
     margin: 20px auto;
