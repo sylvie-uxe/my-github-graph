@@ -44,7 +44,7 @@ function resetColor() {
     }
 }
 
-window.onload = function () {
+function initStartDate() {
     document.getElementById("start-date").setAttribute("value", today.toISODate());
     document.getElementById("start-date").setAttribute("min", today.toISODate());
 
@@ -52,13 +52,21 @@ window.onload = function () {
         startDate = computeStartDate(DateTime.fromISO(document.getElementById("start-date").value));
         resetDate();
     }
+}
+
+window.onload = function () {
+    initStartDate();
 
     const days = document.getElementsByClassName("day");
-
     for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
         const day = days[dayIndex];
         const date = startDate.plus({ days: dayIndex });
-        day.setAttribute("data-date", date.toISODate());
+        
+        if (date < today) {
+            day.setAttribute("visibility", "hidden");
+        } else {
+            day.setAttribute("data-date", date.toISODate());
+        }
 
         if (date.weekday === WEEK_STARTS_ON_DAY && date.day >= 1 && date.day <= 7) {
             const month = getMonthFromDate(date);
@@ -70,12 +78,7 @@ window.onload = function () {
         }
 
         day.onclick = () => {
-            if (date < today) {
-                document.getElementById("error").innerHTML = "You cannot select this day because it is in the past.";
-            } else {
-                document.getElementById("error").innerHTML = "";
-                toggleColor(day);
-            }
+            toggleColor(day);
         }
         day.keydown = () => {
             toggleColor(day);
