@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    outline: 1px solid red;
 }
 
 body {
@@ -21,65 +22,19 @@ h2 {
 }
 
 section {
-    min-height: 100px;
-    min-width: 50vw;
-    width: 1000px;
+    min-height: 80px;
     margin: 0 auto;
     border: 1px solid grey;
-    margin-top: 20px;
 }
 
-/* td:hover {
-    position: relative;
-}
-
-td:hover:before {
-    content: attr(aria-label);
-    width: 200px;
-    background-color: rgba(0,0,0,0.8);
-    color: #fff;
-    text-align: center;
-    padding: 5px 5px;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    bottom: 200%;
-    left: 50%;
-    margin-left: -60px;
-}
-
-td:hover:after {
-    content: '';
-    position: absolute;
-    bottom: 110%;
-    left: 50%;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(0,0,0,0.8) transparent transparent transparent;
-} */
-
-/* .css-animation {
-    transform: translateX(100%);
-}
-
-button {
-    cursor: hand;
-    background-color: #ff8d35;
-    color: white;
-    font-weight: 900;
-    font-size: 1.2em;
-    border: none;
-    padding: 1em 3em;
-    margin: 2em auto;
+svg {
     display: block;
-
-    transition: background .5s ease-in, transform .5s .25s ease-in-out;
+    margin: 0 auto;
 }
 
-button:hover {
-    background: #c61140;
-    transform: scale(1.2);
-} */
+text {
+    display: block;
+}
 
 .month {
     font-size: 10px;
