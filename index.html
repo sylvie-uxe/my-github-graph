@@ -16,8 +16,8 @@
         <section>
             <h2>Contributions</h2>
             <figure>
-                <svg class="calendar" viewBox="0 0 828 128" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(30, 20)" id="calendar">
+                <svg id="calendar" viewBox="0 0 828 128" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(30, 20)">
                         <text text-anchor="start" class="weekday" dx="-26" dy="25">Mon</text>
                         <text text-anchor="start" class="weekday" dx="-26" dy="56">Wed</text>
                         <text text-anchor="start" class="weekday" dx="-26" dy="85">Fri</text>
@@ -553,14 +553,14 @@
                         </g>
                     </g>
                 </svg>
-                <svg class="caption" viewBox="0 0 828 60" xmlns="http://www.w3.org/2000/svg">
-                    <g>
+                <svg class="caption" viewBox="0 0 828 40" xmlns="http://www.w3.org/2000/svg">
+                    <g class="hidden" id="hovered-date-label">
                         <text class="caption" x="30" y="10" dx="0" dy="0">Date: </text>
-                        <text class="tooltip hidden" id="hovered-date" x="100" y="10" dx="0" dy="0"></text>
+                        <text class="tooltip" id="hovered-date" x="100" y="10" dx="0" dy="0"></text>
                     </g>
-                    <g>
+                    <g class="hidden" id="energy-level-label">
                         <text class="caption" x="30" y="30" dx="0" dy="0">Energy level: </text>
-                        <text class="tooltip hidden" id="energy-level" x="100" y="30" dx="0" dy="0"></text>
+                        <text class="tooltip" id="energy-level" x="100" y="30" dx="0" dy="0"></text>
                     </g>
                     <g transform="translate(680, 0)">
                         <text class="caption" x="0" y="0" dx="2" dy="10">Less</text>
@@ -573,10 +573,15 @@
                     </g>
                 </svg>
             </figure>
-            <button id="clear" class="hidden" aria-label="Clear">Clear</button>
+            <ul class="hidden" id="toolbar">
+                <li><button id="clear" aria-label="Clear">Clear</button></li>
+                <li><button id="save-as-image" aria-label="Save as Image">Save as Image</button></li>
+                <li><button id="save-as-calendar" aria-label="Save as Calendar">Save as Calendar</button></li>
+            </ul>
         </section>
 
         <script src="./js/luxon.min.js"></script>
         <script src="./js/my-github-graph.js"></script>
+        <script src="./js/saveSvgAsPng.js"></script>
     </body>
 </html>

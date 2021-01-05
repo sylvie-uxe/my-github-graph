@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* border: .2px dashed red !important; */
 }
 
 *:focus {
@@ -36,14 +37,7 @@ figure {
     border: 1px solid #e1e4e8;
 }
 
-svg.calendar {
-    display: block;
-    margin: 20px auto;
-    max-width: 828px;
-    max-height: 128px;
-}
-
-svg.caption {
+svg {
     display: block;
     margin: 20px auto;
     max-width: 828px;
@@ -91,36 +85,38 @@ input[type="date"] {
 
 button {
     padding: 5px 16px;
+    margin: 20px;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
     color: #24292e;
     text-align: center;
-    display: block;
-    margin: 20px auto;
     cursor: pointer;
     border: 1px solid rgba(27,31,35,0.15);
     border-radius: 6px;
     background-color: #fafbfc;
     box-shadow: 0 1px 0 rgba(27,31,35,0.04), inset 0 1px 0 hsla(0,0%,100%,0.25);
-    transition-duration: .2s;
-    transition-timing-function: cubic-bezier(.3,0,.5,1);
-    transition-property: background-color, border-color;
 }
 
 button:hover {
     background-color: #f3f4f6;
-    border-color: rgba(27,31,35,0.15);
+    border-color: rgba(27,31,35,0.05);
 }
 
 .visible {
     visibility: visible;
     opacity: 1;
-    transition: opacity 1s linear;
+    transition: opacity 1s cubic-bezier(0.32, 0, 0.67, 0), visibility 2s cubic-bezier(0.32, 0, 0.67, 0);
 }
 
 .hidden {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s 2s, opacity 1s linear;
+    transition: opacity 1s cubic-bezier(0.32, 0, 0.67, 0), visibility 2s cubic-bezier(0.32, 0, 0.67, 0);
+}
+
+ul#toolbar {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
 }

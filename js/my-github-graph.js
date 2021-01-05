@@ -75,10 +75,17 @@ function initStartDate() {
     }
 }
 
-function hideClearButton() {
-    const clearButton = document.getElementById("clear");
-    if (clearButton.className === "hidden") {
-        clearButton.className = "visible";
+function hide(element) {
+    if (element.classList.contains("visible")) {
+        element.classList.remove("visible");
+        element.classList.add("hidden");
+    }
+}
+
+function show(element) {
+    if (element.classList.contains("hidden")) {
+        element.classList.remove("hidden");
+        element.classList.add("visible");
     }
 }
 
@@ -89,7 +96,16 @@ window.onload = function () {
         if (event.target.clientX != 0) {
             event.target.blur();
         }
-        clearButton.className = "hidden";
+        hide(document.getElementById("toolbar"));
+    }
+
+    document.getElementById("save-as-image").onclick = () => {
+        const options = {
+            backgroundColor: "#fff",
+            encoderOptions: 1,
+            scale: 0.75
+        }
+        saveSvgAsPng(document.getElementById("calendar"), "my-github-graph.png", options);
     }
 
     initStartDate();
@@ -102,44 +118,32 @@ window.onload = function () {
 
         day.onclick = () => {
             toggleColor(day);
-            hideClearButton();
-            document.getElementById("hovered-date").classList.remove("hidden");
-            document.getElementById("hovered-date").classList.add("visible");
-            document.getElementById("energy-level").classList.remove("hidden");
-            document.getElementById("energy-level").classList.add("visible");
+            show(document.getElementById("toolbar"));
+            show(document.getElementById("hovered-date-label"));
+            show(document.getElementById("energy-level-label"));
             document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
             document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
         }
         day.onmouseover = () => {
-            document.getElementById("hovered-date").classList.remove("hidden");
-            document.getElementById("hovered-date").classList.add("visible");
-            document.getElementById("energy-level").classList.remove("hidden");
-            document.getElementById("energy-level").classList.add("visible");
+            show(document.getElementById("hovered-date-label"));
             document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
             document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
         }
         day.onmouseout = () => {
-            document.getElementById("hovered-date").classList.remove("visible");
-            document.getElementById("hovered-date").classList.add("hidden");
-            document.getElementById("energy-level").classList.remove("visible");
-            document.getElementById("energy-level").classList.add("hidden");
-            document.getElementById("hovered-date").innerHTML = "";
-            document.getElementById("energy-level").innerHTML = "";
+            hide(document.getElementById("hovered-date-label"));
+            hide(document.getElementById("energy-level-label"));
         }
     }
 
     const levels = document.querySelectorAll("rect.caption");
     for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
         levels[levelIndex].onmouseover = () => {
-            document.getElementById("energy-level").classList.remove("hidden");
-            document.getElementById("energy-level").classList.add("visible");
+            show(document.getElementById("energy-level-label"));
             document.getElementById("energy-level").innerHTML = energyLevels[levelIndex];
         }
 
         levels[levelIndex].onmouseout = () => {
-            document.getElementById("energy-level").classList.remove("visible");
-            document.getElementById("energy-level").classList.add("hidden");
-            document.getElementById("energy-level").innerHTML = "";
+            hide(document.getElementById("energy-level-label"));
         }
     }
 }
