@@ -1,10 +1,9 @@
 const colors = ['#f5f6f7', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
-// const level0 = 'Take the day off';
-// const level1 = 'Take it easy';
-// const level2 = 'Come on, you can do it';
-// const level3 = 'You\'re doing amazing sweetie';
-// const level4 = 'Commit like your life depends on it';
-// const contributions = [level0, level1, level2, level3, level4];
+const energyLevels = ["take the day off",
+                      "take it easy",
+                      "commit push repeat",
+                      "you're doing amazing sweetie",
+                      "commit like your life depends on it"];
 
 const DateTime = luxon.DateTime;
 const Duration = luxon.Duration;
@@ -27,11 +26,33 @@ function toggleColor(element) {
     element.setAttribute("fill", colors[dataCount]);
 }
 
-function resetDate() {
+function initDay(days, dayIndex) {
+    const date = startDate.plus({ days: dayIndex });
+    if (date < today || date < DateTime.fromISO(document.getElementById("start-date").value)) {
+        days[dayIndex].setAttribute("visibility", "hidden");
+    } else {
+        days[dayIndex].setAttribute("visibility", "visible");
+        days[dayIndex].setAttribute("data-date", date.toISODate());
+    }
+
+    const endOfMonth = date.endOf("month");
+    if ((date.weekday === WEEK_STARTS_ON_DAY && date.day >= 1 && date.day <= 7)
+        || dayIndex === 0 && date < endOfMonth.minus({ days: 7 })) {
+        const month = getMonthFromDate(date);
+        days[dayIndex].parentNode.firstElementChild.innerHTML = month;
+    }
+}
+
+function initCalendar() {
+    const months = document.getElementsByClassName("month");
     const days = document.getElementsByClassName("day");
 
+    for (let monthIndex = 0; monthIndex < months.length; monthIndex++) {
+        months[monthIndex].innerHTML = "";
+    }
+
     for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
-        days[dayIndex].setAttribute("data-date", startDate.plus({ days: dayIndex }));
+        initDay(days, dayIndex);
     }
 }
 
@@ -50,7 +71,14 @@ function initStartDate() {
 
     document.getElementById("start-date").onchange = () => {
         startDate = computeStartDate(DateTime.fromISO(document.getElementById("start-date").value));
-        resetDate();
+        initCalendar();
+    }
+}
+
+function hideClearButton() {
+    const clearButton = document.getElementById("clear");
+    if (clearButton.className === "hidden") {
+        clearButton.className = "visible";
     }
 }
 
@@ -61,6 +89,7 @@ window.onload = function () {
         if (event.target.clientX != 0) {
             event.target.blur();
         }
+        clearButton.className = "hidden";
     }
 
     initStartDate();
@@ -68,34 +97,47 @@ window.onload = function () {
     const days = document.getElementsByClassName("day");
     for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
         const day = days[dayIndex];
-        const date = startDate.plus({ days: dayIndex });
-        
-        if (date < today) {
-            day.setAttribute("visibility", "hidden");
-        } else {
-            day.setAttribute("data-date", date.toISODate());
-        }
 
-        if (date.weekday === WEEK_STARTS_ON_DAY && date.day >= 1 && date.day <= 7) {
-            const month = getMonthFromDate(date);
-            let textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-            textElement.setAttribute("class", "month");
-            textElement.setAttribute("y", "-8");
-            textElement.innerHTML = month;
-            day.parentNode.appendChild(textElement);
-        }
+        initDay(days, dayIndex);
 
         day.onclick = () => {
             toggleColor(day);
+            hideClearButton();
+            // document.getElementById("hovered-date").className = "visible";
+            // document.getElementById("energy-level").className = "visible";
+            // document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+            // document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
         }
-        day.keydown = () => {
-            toggleColor(day);
-        }
+        // day.keydown = () => {
+        //     toggleColor(day);
+        //     hideClearButton();
+        //     document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+        //     document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
+        // }
         day.onmouseover = () => {
-            document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+            document.getElementById("hovered-date").className = "visible";
+            document.getElementById("energy-level").className = "visible";
+            // document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+            // document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
         }
         day.onmouseout = () => {
-            document.getElementById("hovered-date").innerHTML = "";
+            // document.getElementById("hovered-date").className = "collapsed";
+            // document.getElementById("energy-level").className = "collapsed";
+            // document.getElementById("hovered-date").innerHTML = "";
+            // document.getElementById("energy-level").innerHTML = "";
         }
     }
+
+    // const levels = document.querySelectorAll("rect.caption");
+    // for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
+    //     levels[levelIndex].onmouseover = () => {
+    //         document.getElementById("hovered-date").className = "visible";
+    //         document.getElementById("energy-level").innerHTML = energyLevels[levelIndex];
+    //     }
+
+    //     levels[levelIndex].onmouseout = () => {
+    //         document.getElementById("energy-level-caption").className = "collapsed";
+    //         document.getElementById("energy-level").innerHTML = "";
+    //     }
+    // }
 }

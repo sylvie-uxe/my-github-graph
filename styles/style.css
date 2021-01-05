@@ -13,6 +13,8 @@ body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
     line-height: 1.5;
     color: #24292e;
+    margin: 0 auto;
+    max-width: 1000px;
 }
 
 h1 {
@@ -29,11 +31,6 @@ h2 {
     margin-bottom: 15px;
 }
 
-header, section {
-    margin: 0 auto;
-    max-width: 1200px;
-}
-
 figure {
     border-radius: 6px 6px 0 0;
     border: 1px solid #e1e4e8;
@@ -41,16 +38,20 @@ figure {
 
 svg.calendar {
     display: block;
-    margin: 20px 40px 0 auto;
+    margin: 20px auto;
     max-width: 828px;
     max-height: 128px;
 }
 
 svg.caption {
     display: block;
-    margin: 20px 40px 0 auto;
-    max-width: 150px;
-    max-height: 20px;
+    margin: 20px auto;
+    max-width: 828px;
+}
+
+rect {
+    outline: 1px solid rgba(27,31,35,0.06);
+    outline-offset: -1px;
 }
 
 text.month {
@@ -63,19 +64,29 @@ text.weekday {
     fill: #24292e;
 }
 
-rect.day {
-    outline: 1px solid rgba(27,31,35,0.06);
-    outline-offset: -1px;
-}
-
 text.caption {
-    fill: #586069;
     font-size: 11px;
+    fill: #586069;
 }
 
-rect.caption {
-    outline: 1px solid rgba(27,31,35,0.06);
-    outline-offset: -1px;
+text.tooltip {
+    font-size: 12px;
+    color: #24292e;
+}
+
+input[type="date"] {
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 20px;
+    min-height: 28px;
+    margin-left: 8px;
+    padding: 3px 12px;
+    color: #24292e;
+    background-color: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: inset 0 1px 0 rgba(225,228,232,0.2);
 }
 
 button {
@@ -102,6 +113,18 @@ button:hover {
     border-color: rgba(27,31,35,0.15);
 }
 
-aside {
-    float: right;
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 1s linear;
+}
+
+.collapsed {
+    visibility: collapse;
 }
