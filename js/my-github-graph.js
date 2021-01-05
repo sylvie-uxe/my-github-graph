@@ -103,41 +103,43 @@ window.onload = function () {
         day.onclick = () => {
             toggleColor(day);
             hideClearButton();
-            // document.getElementById("hovered-date").className = "visible";
-            // document.getElementById("energy-level").className = "visible";
-            // document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
-            // document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
+            document.getElementById("hovered-date").classList.remove("hidden");
+            document.getElementById("hovered-date").classList.add("visible");
+            document.getElementById("energy-level").classList.remove("hidden");
+            document.getElementById("energy-level").classList.add("visible");
+            document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+            document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
         }
-        // day.keydown = () => {
-        //     toggleColor(day);
-        //     hideClearButton();
-        //     document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
-        //     document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
-        // }
         day.onmouseover = () => {
-            document.getElementById("hovered-date").className = "visible";
-            document.getElementById("energy-level").className = "visible";
-            // document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
-            // document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
+            document.getElementById("hovered-date").classList.remove("hidden");
+            document.getElementById("hovered-date").classList.add("visible");
+            document.getElementById("energy-level").classList.remove("hidden");
+            document.getElementById("energy-level").classList.add("visible");
+            document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+            document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
         }
         day.onmouseout = () => {
-            // document.getElementById("hovered-date").className = "collapsed";
-            // document.getElementById("energy-level").className = "collapsed";
-            // document.getElementById("hovered-date").innerHTML = "";
-            // document.getElementById("energy-level").innerHTML = "";
+            document.getElementById("hovered-date").classList.remove("visible");
+            document.getElementById("hovered-date").classList.add("hidden");
+            document.getElementById("energy-level").classList.remove("visible");
+            document.getElementById("energy-level").classList.add("hidden");
+            document.getElementById("hovered-date").innerHTML = "";
+            document.getElementById("energy-level").innerHTML = "";
         }
     }
 
-    // const levels = document.querySelectorAll("rect.caption");
-    // for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
-    //     levels[levelIndex].onmouseover = () => {
-    //         document.getElementById("hovered-date").className = "visible";
-    //         document.getElementById("energy-level").innerHTML = energyLevels[levelIndex];
-    //     }
+    const levels = document.querySelectorAll("rect.caption");
+    for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
+        levels[levelIndex].onmouseover = () => {
+            document.getElementById("energy-level").classList.remove("hidden");
+            document.getElementById("energy-level").classList.add("visible");
+            document.getElementById("energy-level").innerHTML = energyLevels[levelIndex];
+        }
 
-    //     levels[levelIndex].onmouseout = () => {
-    //         document.getElementById("energy-level-caption").className = "collapsed";
-    //         document.getElementById("energy-level").innerHTML = "";
-    //     }
-    // }
+        levels[levelIndex].onmouseout = () => {
+            document.getElementById("energy-level").classList.remove("visible");
+            document.getElementById("energy-level").classList.add("hidden");
+            document.getElementById("energy-level").innerHTML = "";
+        }
+    }
 }

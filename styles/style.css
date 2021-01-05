@@ -124,7 +124,3 @@ button:hover {
     opacity: 0;
     transition: visibility 0s 2s, opacity 1s linear;
 }
-
-.collapsed {
-    visibility: collapse;
-}
