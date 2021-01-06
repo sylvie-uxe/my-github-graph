@@ -10,6 +10,72 @@ const Duration = luxon.Duration;
 const WEEK_STARTS_ON_DAY = 7; // ISO weekday number: 1 is Monday, ..., 7 is Sunday
 const today = DateTime.local();
 let startDate = computeStartDate(today);
+let icsFile = null;
+
+function createFile() {
+    const data = ["Hello", "World"];
+    icsFile = new File(data, "my-github-graph.ics", {
+        type: "text/calendar"
+    });
+}
+
+// function createFile() {
+//     var eventDate = {
+//         start: document.querySelector("#startDate").value,
+//         end: document.querySelector("#endDate").value
+//     },
+//     summary = document.querySelector("#summary").value,
+//     description = document.querySelector("#description").value;
+//     var link = document.querySelector("#downloadLink");
+//     link.href = makeIcsFile(eventDate, summary, description);
+//     link.classList.remove("hide");
+// }
+
+// function convertDate(date) {
+//     var event = new Date(date).toISOString();
+//     event = event.split("T")[0];
+//     event = event.split("-");
+//     event = event.join("");
+//     return event;
+//   }
+
+//   function makeIcsFile(date, summary, description) {
+//     var test =
+//       "BEGIN:VCALENDAR\n" +
+//       "CALSCALE:GREGORIAN\n" +
+//       "METHOD:PUBLISH\n" +
+//       "PRODID:-//Test Cal//EN\n" +
+//       "VERSION:2.0\n" +
+//       "BEGIN:VEVENT\n" +
+//       "UID:test-1\n" +
+//       "DTSTART;VALUE=DATE:" +
+//       convertDate(date.start) +
+//       "\n" +
+//       "DTEND;VALUE=DATE:" +
+//       convertDate(date.end) +
+//       "\n" +
+//       "SUMMARY:" +
+//       summary +
+//       "\n" +
+//       "DESCRIPTION:" +
+//       description +
+//       "\n" +
+//       "END:VEVENT\n" +
+//       "END:VCALENDAR";
+  
+//     var data = new File([test], { type: "text/plain" });
+  
+//     // If we are replacing a previously generated file we need to
+//     // manually revoke the object URL to avoid memory leaks.
+//     if (icsFile !== null) {
+//       window.URL.revokeObjectURL(icsFile);
+//     }
+  
+//     icsFile = window.URL.createObjectURL(data);
+  
+//     return icsFile;
+//   }
+
 
 function computeStartDate(date) {
     return date.minus( { days: date.weekday % WEEK_STARTS_ON_DAY });
@@ -102,10 +168,13 @@ window.onload = function () {
     document.getElementById("save-as-image").onclick = () => {
         const options = {
             backgroundColor: "#fff",
-            encoderOptions: 1,
-            scale: 0.75
+            encoderOptions: 1
         }
         saveSvgAsPng(document.getElementById("calendar"), "my-github-graph.png", options);
+    }
+
+    document.getElementById("save-as-calendar").onclick = () => {
+        let cal = ics();
     }
 
     initStartDate();

@@ -37,9 +37,11 @@ figure {
     border: 1px solid #e1e4e8;
 }
 
-svg {
+svg#calendar {
     display: block;
-    margin: 20px auto;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 828px;
 }
 
