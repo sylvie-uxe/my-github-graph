@@ -10,72 +10,52 @@ const Duration = luxon.Duration;
 const WEEK_STARTS_ON_DAY = 7; // ISO weekday number: 1 is Monday, ..., 7 is Sunday
 const today = DateTime.local();
 let startDate = computeStartDate(today);
-let icsFile = null;
+let icsFileURL = null;
 
-function createFile() {
-    const data = ["Hello", "World"];
-    icsFile = new File(data, "my-github-graph.ics", {
-        type: "text/calendar"
-    });
+function generateEvents() {
+    const events = [];
+    const days = document.getElementsByClassName("day");
+    for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
+        const day = days[dayIndex];
+        if (day.getAttribute("data-count") !== "0") {
+            const date = DateTime.fromISO(day.getAttribute("data-date"));
+            if (events.length === 0) {
+                console.log("Empty array = ", events);
+                events[0] = "BEGIN:VEVENT\n";
+            } else {
+                console.log("Not empty array = ", events);
+                events.push["BEGIN:VEVENT\n"];
+            }
+            events.push("UID:" + date.toMillis() + "@my-github-graph\n");
+            events.push("DTSTART;VALUE=DATE:" + date.toFormat("yyyyMMdd") + "\n");
+            events.push("SUMMARY:" + energyLevels[parseInt(day.getAttribute("data-count"))] + "\n");
+            events.push("END:VEVENT\n");
+        }
+    }
+    return events;
 }
 
-// function createFile() {
-//     var eventDate = {
-//         start: document.querySelector("#startDate").value,
-//         end: document.querySelector("#endDate").value
-//     },
-//     summary = document.querySelector("#summary").value,
-//     description = document.querySelector("#description").value;
-//     var link = document.querySelector("#downloadLink");
-//     link.href = makeIcsFile(eventDate, summary, description);
-//     link.classList.remove("hide");
-// }
-
-// function convertDate(date) {
-//     var event = new Date(date).toISOString();
-//     event = event.split("T")[0];
-//     event = event.split("-");
-//     event = event.join("");
-//     return event;
-//   }
-
-//   function makeIcsFile(date, summary, description) {
-//     var test =
-//       "BEGIN:VCALENDAR\n" +
-//       "CALSCALE:GREGORIAN\n" +
-//       "METHOD:PUBLISH\n" +
-//       "PRODID:-//Test Cal//EN\n" +
-//       "VERSION:2.0\n" +
-//       "BEGIN:VEVENT\n" +
-//       "UID:test-1\n" +
-//       "DTSTART;VALUE=DATE:" +
-//       convertDate(date.start) +
-//       "\n" +
-//       "DTEND;VALUE=DATE:" +
-//       convertDate(date.end) +
-//       "\n" +
-//       "SUMMARY:" +
-//       summary +
-//       "\n" +
-//       "DESCRIPTION:" +
-//       description +
-//       "\n" +
-//       "END:VEVENT\n" +
-//       "END:VCALENDAR";
-  
-//     var data = new File([test], { type: "text/plain" });
-  
-//     // If we are replacing a previously generated file we need to
-//     // manually revoke the object URL to avoid memory leaks.
-//     if (icsFile !== null) {
-//       window.URL.revokeObjectURL(icsFile);
-//     }
-  
-//     icsFile = window.URL.createObjectURL(data);
-  
-//     return icsFile;
-//   }
-
+function generateCalendarFile() {
+    const data = [
+        "BEGIN:VCALENDAR\n",
+        "METHOD:PUBLISH\n",
+        "PRODID:-//My Github Graph//EN\n",
+        "VERSION:2.0\n"
+    ];
+    data.push(...generateEvents());
+    data.push("END:VCALENDAR");
+    
+    const icsFile = new File(data, "my-github-graph.ics", {
+        type: "text/calendar"
+    });
+    if (icsFileURL) {
+        window.URL.revokeObjectURL(icsFileURL);
+        console.log("Revoke URL");
+    }
+    console.log("Create URL");
+    icsFileURL = window.URL.createObjectURL(icsFile);
+    return icsFileURL;
+}
 
 function computeStartDate(date) {
     return date.minus( { days: date.weekday % WEEK_STARTS_ON_DAY });
@@ -174,7 +154,8 @@ window.onload = function () {
     }
 
     document.getElementById("save-as-calendar").onclick = () => {
-        let cal = ics();
+        const downloadLink = document.getElementById("download-link");
+        downloadLink.setAttribute("href", generateCalendarFile());
     }
 
     initStartDate();
