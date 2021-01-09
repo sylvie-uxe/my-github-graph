@@ -1,9 +1,9 @@
 const colors = ['#f5f6f7', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
-const energyLevels = ["take the day off",
-                      "take it easy",
-                      "commit push repeat",
-                      "you're doing amazing sweetie",
-                      "commit like your life depends on it"];
+const energyLevels = ["Take the day off",
+                      "Take it easy",
+                      "Commit push repeat",
+                      "You're doing amazing sweetie",
+                      "Commit like your life depends on it"];
 
 const DateTime = luxon.DateTime;
 const Duration = luxon.Duration;
@@ -19,13 +19,7 @@ function generateEvents() {
         const day = days[dayIndex];
         if (day.getAttribute("data-count") !== "0") {
             const date = DateTime.fromISO(day.getAttribute("data-date"));
-            if (events.length === 0) {
-                console.log("Empty array = ", events);
-                events[0] = "BEGIN:VEVENT\n";
-            } else {
-                console.log("Not empty array = ", events);
-                events.push["BEGIN:VEVENT\n"];
-            }
+            events.push("BEGIN:VEVENT\n");
             events.push("UID:" + date.toMillis() + "@my-github-graph\n");
             events.push("DTSTART;VALUE=DATE:" + date.toFormat("yyyyMMdd") + "\n");
             events.push("SUMMARY:" + energyLevels[parseInt(day.getAttribute("data-count"))] + "\n");
@@ -135,13 +129,25 @@ function show(element) {
     }
 }
 
+function updateEnergyLevel(day) {
+    toggleColor(day);
+    show(document.getElementById("toolbar"));
+    show(document.getElementById("hovered-date-label"));
+    show(document.getElementById("energy-level-label"));
+    document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+    document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
+}
+
 window.onload = function () {
-    const clearButton = document.getElementById("clear");
-    clearButton.onclick = (event) => {
-        resetColor();
+    document.onclick = (event) => {
         if (event.target.clientX != 0) {
             event.target.blur();
         }
+    }
+
+    const clearButton = document.getElementById("clear");
+    clearButton.onclick = (event) => {
+        resetColor();
         hide(document.getElementById("toolbar"));
     }
 
@@ -154,8 +160,7 @@ window.onload = function () {
     }
 
     document.getElementById("save-as-calendar").onclick = () => {
-        const downloadLink = document.getElementById("download-link");
-        downloadLink.setAttribute("href", generateCalendarFile());
+        document.getElementById("save-as-calendar").setAttribute("href", generateCalendarFile());
     }
 
     initStartDate();
@@ -167,13 +172,19 @@ window.onload = function () {
         initDay(days, dayIndex);
 
         day.onclick = () => {
-            toggleColor(day);
-            show(document.getElementById("toolbar"));
-            show(document.getElementById("hovered-date-label"));
-            show(document.getElementById("energy-level-label"));
-            document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
-            document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
+            updateEnergyLevel(day);
         }
+
+        day.onkeydown = (event) => {
+            switch (event.which) {
+                case KEY_SPACE: {
+                    event.stopPropagation;
+                    return updateEnergyLevel(day);
+                }
+            }
+            return true;
+        }
+
         day.onmouseover = () => {
             show(document.getElementById("hovered-date-label"));
             document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
