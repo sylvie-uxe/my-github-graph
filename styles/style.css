@@ -4,33 +4,6 @@
     padding: 0;
 }
 
-a#save-as-calendar {
-    text-decoration: none;
-    display: block;
-    padding: 5px 16px;
-    margin: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #24292e;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid rgba(27,31,35,0.15);
-    border-radius: 6px;
-    background-color: #fafbfc;
-    box-shadow: 0 1px 0 rgba(27,31,35,0.04), inset 0 1px 0 hsla(0,0%,100%,0.25);
-}
-
-a#save-as-calendar:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
-}
-
-a#save-as-calendar:hover {
-    background-color: #f3f4f6;
-    border-color: rgba(27,31,35,0.05);
-}
-
 body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
     line-height: 1.5;
@@ -98,7 +71,7 @@ text.caption {
 
 text.tooltip {
     font-size: 12px;
-    color: #24292e;
+    fill: #24292e;
 }
 
 input[type="date"] {
@@ -121,7 +94,25 @@ input:focus {
     box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
 }
 
-button {
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(0.32, 0, 0.67, 0), visibility 2s cubic-bezier(0.32, 0, 0.67, 0);
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.32, 0, 0.67, 0), visibility 2s cubic-bezier(0.32, 0, 0.67, 0);
+}
+
+ul#buttonset {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+button, #buttonset a {
     font-family: inherit;
     padding: 5px 16px;
     margin: 20px;
@@ -137,30 +128,17 @@ button {
     box-shadow: 0 1px 0 rgba(27,31,35,0.04), inset 0 1px 0 hsla(0,0%,100%,0.25);
 }
 
-button:hover {
+button:hover, #buttonset a:hover {
     background-color: #f3f4f6;
     border-color: rgba(27,31,35,0.05);
 }
 
-button:focus {
+button:focus, #buttonset a:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
 }
 
-.visible {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 1s cubic-bezier(0.32, 0, 0.67, 0), visibility 2s cubic-bezier(0.32, 0, 0.67, 0);
-}
-
-.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 1s cubic-bezier(0.32, 0, 0.67, 0), visibility 2s cubic-bezier(0.32, 0, 0.67, 0);
-}
-
-ul#toolbar {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
+#buttonset a {
+    text-decoration: none;
+    display: block;   
 }

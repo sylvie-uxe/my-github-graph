@@ -131,7 +131,7 @@ function show(element) {
 
 function updateEnergyLevel(day) {
     toggleColor(day);
-    show(document.getElementById("toolbar"));
+    show(document.getElementById("buttonset"));
     show(document.getElementById("hovered-date-label"));
     show(document.getElementById("energy-level-label"));
     document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
@@ -148,7 +148,7 @@ window.onload = function () {
     const clearButton = document.getElementById("clear");
     clearButton.onclick = (event) => {
         resetColor();
-        hide(document.getElementById("toolbar"));
+        hide(document.getElementById("buttonset"));
     }
 
     document.getElementById("save-as-image").onclick = () => {
@@ -159,8 +159,19 @@ window.onload = function () {
         saveSvgAsPng(document.getElementById("calendar"), "my-github-graph.png", options);
     }
 
-    document.getElementById("save-as-calendar").onclick = () => {
-        document.getElementById("save-as-calendar").setAttribute("href", generateCalendarFile());
+    const saveAsCalButton = document.getElementById("save-as-calendar");
+    saveAsCalButton.onclick = (event) => {
+        event.target.href = generateCalendarFile();
+    }
+
+    saveAsCalButton.onkeydown = (event) => {
+        switch(event.key) {
+            case " ":
+                event.target.click();
+                break;
+            default:
+                return;
+        }
     }
 
     initStartDate();
@@ -176,13 +187,14 @@ window.onload = function () {
         }
 
         day.onkeydown = (event) => {
-            switch (event.which) {
-                case KEY_SPACE: {
-                    event.stopPropagation;
-                    return updateEnergyLevel(day);
-                }
+            switch (event.key) {
+                case " ":
+                case "Enter":
+                    updateEnergyLevel(day);
+                    break;
+                default:
+                    return;
             }
-            return true;
         }
 
         day.onmouseover = () => {
