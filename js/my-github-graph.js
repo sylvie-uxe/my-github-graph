@@ -8,6 +8,8 @@ const energyLevels = ["Take the day off",
 const DateTime = luxon.DateTime;
 const Duration = luxon.Duration;
 const WEEK_STARTS_ON_DAY = 7; // ISO weekday number: 1 is Monday, ..., 7 is Sunday
+const daysInAWeek = 7;
+const weeksInAYear = 52;
 const today = DateTime.local();
 let startDate = computeStartDate(today);
 let icsFileURL = null;
@@ -51,6 +53,51 @@ function generateCalendarFile() {
     return icsFileURL;
 }
 
+function isFirstDayOfWeek(dayIndex) {
+    return dayIndex % daysInAWeek === 0;
+}
+
+function isLastDayOfWeek(dayIndex) {
+    return dayIndex % daysInAWeek === daysInAWeek - 1;
+}
+
+function isLastWeekDayOfYear(dayIndex) {
+    return dayIndex >= daysInAWeek*weeksInAYear
+        && dayIndex < daysInAWeek*weeksInAYear + daysInAWeek;
+}
+
+function isFirstWeekDayOfYear(dayIndex) {
+    return dayIndex >= 0 && dayIndex < daysInAWeek;
+}
+
+function moveUp(currentIndex) {
+    if (isFirstDayOfWeek(currentIndex)) {
+        return currentIndex + daysInAWeek - 1;
+    }
+    return currentIndex - 1;
+}
+
+function moveDown(currentIndex) {
+    if (isLastDayOfWeek(currentIndex)) {
+        return currentIndex - daysInAWeek + 1;
+    }
+    return currentIndex + 1;
+}
+
+function moveRight(currentIndex) {
+    if (isLastWeekDayOfYear(currentIndex)) {
+        return currentIndex - daysInAWeek*weeksInAYear;
+    }
+    return currentIndex + daysInAWeek;
+}
+
+function moveLeft(currentIndex) {
+    if (isFirstWeekDayOfYear(currentIndex)) {
+        return currentIndex + daysInAWeek*weeksInAYear;
+    }
+    return currentIndex - daysInAWeek;
+}
+
 function computeStartDate(date) {
     return date.minus( { days: date.weekday % WEEK_STARTS_ON_DAY });
 }
@@ -61,13 +108,6 @@ function getShortMonthFromDate(date) {
 
 function getLongMonthFromDate(date) {
     return date.monthLong;
-}
-
-function toggleColor(element) {
-    let dataCount = element.getAttribute("data-count");
-    dataCount = ++dataCount % colors.length;
-    element.setAttribute("data-count", dataCount);
-    element.setAttribute("fill", colors[dataCount]);
 }
 
 function initDay(days, dayIndex) {
@@ -133,21 +173,32 @@ function show(element) {
     }
 }
 
-function updateEnergyLevel(day) {
-    toggleColor(day);
-    show(document.getElementById("buttonset"));
-    show(document.getElementById("hovered-date-label"));
-    show(document.getElementById("energy-level-label"));
-    document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
-    document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
+function showCursor(index) {
+    for (let energyIndex = 0; energyIndex < energyLevels.length; energyIndex++) {
+        hide(document.getElementById("energy-cursor").children[energyIndex]);
+    }
+    show(document.getElementById("energy-cursor").children[index]);
+}
+
+function hideCursor() {
+    for (let energyIndex = 0; energyIndex < energyLevels.length; energyIndex++) {
+        hide(document.getElementById("energy-cursor").children[energyIndex]);
+    }
+}
+
+function updateEnergyLevel(element) {
+    let dataCount = element.getAttribute("data-count");
+    dataCount = ++dataCount % colors.length;
+    element.setAttribute("data-count", dataCount);
+    element.setAttribute("fill", colors[dataCount]);
 }
 
 window.onload = function () {
-    document.onclick = (event) => {
-        if (event.target.clientX != 0) {
-            event.target.blur();
-        }
-    }
+    // document.onclick = (event) => {
+    //     if (event.target.clientX != 0) {
+    //         event.target.blur();
+    //     }
+    // }
 
     const clearButton = document.getElementById("clear");
     clearButton.onclick = (event) => {
@@ -158,7 +209,8 @@ window.onload = function () {
     document.getElementById("save-as-image").onclick = () => {
         const options = {
             backgroundColor: "#fff",
-            encoderOptions: 1
+            encoderOptions: 1,
+            scale: 2
         }
         saveSvgAsPng(document.getElementById("calendar"), "my-github-graph.png", options);
     }
@@ -187,40 +239,99 @@ window.onload = function () {
         initDay(days, dayIndex);
 
         day.onclick = () => {
-            updateEnergyLevel(day);
+            updateContribution(day);
         }
 
         day.onkeydown = (event) => {
+            let newIndex = dayIndex;
             switch (event.key) {
                 case " ":
                 case "Enter":
-                    updateEnergyLevel(day);
+                    updateContribution(day);
+                    break;
+                case "ArrowRight":
+                    do {
+                        newIndex = moveRight(newIndex);
+                    } while (days[newIndex].getAttribute("visibility") !== "visible");
+                    days[newIndex].focus();
+                    break;
+                case "ArrowLeft":
+                    do {
+                        newIndex = moveLeft(newIndex);
+                    } while (days[newIndex].getAttribute("visibility") !== "visible");
+                    days[newIndex].focus();
+                    break;
+                case "ArrowUp":
+                    do {
+                        newIndex = moveUp(newIndex);
+                    } while (days[newIndex].getAttribute("visibility") !== "visible");
+                    days[newIndex].focus();
+                    break;
+                case "ArrowDown":
+                    do {
+                        newIndex = moveDown(newIndex);
+                    } while (days[newIndex].getAttribute("visibility") !== "visible");
+                    days[newIndex].focus(); 
                     break;
                 default:
                     return;
             }
         }
 
+        day.onfocus = () => {
+            showCursor(parseInt(day.getAttribute("data-count")));
+            showDate(day);
+        }
+
+        day.onblur = () => {
+            hideCursor();
+            hideDate();
+        }
+
         day.onmouseover = () => {
-            show(document.getElementById("hovered-date-label"));
-            document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
-            document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
+            showCursor(parseInt(day.getAttribute("data-count")));
+            showDate(day);
         }
+
         day.onmouseout = () => {
-            hide(document.getElementById("hovered-date-label"));
-            hide(document.getElementById("energy-level-label"));
+            hideCursor();
+            hideDate();
         }
     }
 
-    const levels = document.querySelectorAll("rect.caption");
-    for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
-        levels[levelIndex].onmouseover = () => {
-            show(document.getElementById("energy-level-label"));
-            document.getElementById("energy-level").innerHTML = energyLevels[levelIndex];
-        }
+    // const levels = document.querySelectorAll("rect.caption");
+    // for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
+    //     levels[levelIndex].onmouseover = () => {
+    //         // show(document.getElementById("energy-level-label"));
+    //         document.getElementById("energy-level").innerHTML = energyLevels[levelIndex];
+    //     }
 
-        levels[levelIndex].onmouseout = () => {
-            hide(document.getElementById("energy-level-label"));
-        }
-    }
+    //     levels[levelIndex].onmouseout = () => {
+    //         hide(document.getElementById("energy-level-label"));
+    //     }
+    // }
+}
+
+function updateContribution(day) {
+    updateEnergyLevel(day);
+    showCursor(parseInt(day.getAttribute("data-count")));
+    show(document.getElementById("buttonset"));
+}
+
+function hideDate() {
+    hide(document.getElementById("hovered-date-label"));
+}
+
+function showDate(day) {
+    show(document.getElementById("hovered-date-label"));
+    document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+}
+
+function hideCaption() {
+    hide(document.getElementById("energy-level-label"));
+}
+
+function showCaption(day) {
+    show(document.getElementById("energy-cursor"));
+    document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
 }
