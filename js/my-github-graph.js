@@ -55,8 +55,12 @@ function computeStartDate(date) {
     return date.minus( { days: date.weekday % WEEK_STARTS_ON_DAY });
 }
 
-function getMonthFromDate(date) {
+function getShortMonthFromDate(date) {
     return date.monthShort;
+}
+
+function getLongMonthFromDate(date) {
+    return date.monthLong;
 }
 
 function toggleColor(element) {
@@ -78,8 +82,8 @@ function initDay(days, dayIndex) {
     const endOfMonth = date.endOf("month");
     if ((date.weekday === WEEK_STARTS_ON_DAY && date.day >= 1 && date.day <= 7)
         || dayIndex === 0 && date < endOfMonth.minus({ days: 7 })) {
-        const month = getMonthFromDate(date);
-        days[dayIndex].parentNode.firstElementChild.innerHTML = month;
+        days[dayIndex].parentNode.firstElementChild.innerHTML = getShortMonthFromDate(date);
+        days[dayIndex].parentNode.firstElementChild.setAttribute("aria-label", getLongMonthFromDate(date));
     }
 }
 
