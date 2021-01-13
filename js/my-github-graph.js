@@ -46,9 +46,7 @@ function generateCalendarFile() {
     });
     if (icsFileURL) {
         window.URL.revokeObjectURL(icsFileURL);
-        console.log("Revoke URL");
     }
-    console.log("Create URL");
     icsFileURL = window.URL.createObjectURL(icsFile);
     return icsFileURL;
 }
@@ -194,12 +192,6 @@ function updateEnergyLevel(element) {
 }
 
 window.onload = function () {
-    // document.onclick = (event) => {
-    //     if (event.target.clientX != 0) {
-    //         event.target.blur();
-    //     }
-    // }
-
     const clearButton = document.getElementById("clear");
     clearButton.onclick = (event) => {
         resetColor();
@@ -299,6 +291,7 @@ window.onload = function () {
         }
     }
 
+    // TODO: show energy level onmouseover/onfocus
     // const levels = document.querySelectorAll("rect.caption");
     // for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
     //     levels[levelIndex].onmouseover = () => {
@@ -325,13 +318,4 @@ function hideDate() {
 function showDate(day) {
     show(document.getElementById("hovered-date-label"));
     document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
-}
-
-function hideCaption() {
-    hide(document.getElementById("energy-level-label"));
-}
-
-function showCaption(day) {
-    show(document.getElementById("energy-cursor"));
-    document.getElementById("energy-level").innerHTML = energyLevels[parseInt(day.getAttribute("data-count"))];
 }
