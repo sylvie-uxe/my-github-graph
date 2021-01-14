@@ -46,6 +46,9 @@ node_modules/
 # Optional npm cache directory
 .npm
 
+# GitHub workflow
+.github
+
 # Optional eslint cache
 .eslintcache
 

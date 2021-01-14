@@ -229,3 +229,7 @@ footer li {
     margin-right: 40px;
     display: block;
 }
+
+.icon {
+    padding-left: 10px;
+}
