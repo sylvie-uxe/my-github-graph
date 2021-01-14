@@ -9,7 +9,7 @@ const DateTime = luxon.DateTime;
 const Duration = luxon.Duration;
 const WEEK_STARTS_ON_DAY = 7; // ISO weekday number: 1 is Monday, ..., 7 is Sunday
 const daysInAWeek = 7;
-const weeksInAYear = 52;
+const weeksInAYear = 53;
 const today = DateTime.local();
 let startDate = computeStartDate(today);
 let icsFileURL = null;
@@ -52,48 +52,48 @@ function generateCalendarFile() {
 }
 
 function isFirstDayOfWeek(dayIndex) {
-    return dayIndex % daysInAWeek === 0;
+    return dayIndex >= 0 && dayIndex < weeksInAYear;
 }
 
 function isLastDayOfWeek(dayIndex) {
-    return dayIndex % daysInAWeek === daysInAWeek - 1;
+    return dayIndex >= daysInAWeek * weeksInAYear - weeksInAYear
+        && dayIndex < daysInAWeek * weeksInAYear;
 }
 
 function isLastWeekDayOfYear(dayIndex) {
-    return dayIndex >= daysInAWeek*weeksInAYear
-        && dayIndex < daysInAWeek*weeksInAYear + daysInAWeek;
+    return (dayIndex + 1) % weeksInAYear === 0;
 }
 
 function isFirstWeekDayOfYear(dayIndex) {
-    return dayIndex >= 0 && dayIndex < daysInAWeek;
+    return dayIndex % weeksInAYear === 0;
 }
 
 function moveUp(currentIndex) {
     if (isFirstDayOfWeek(currentIndex)) {
-        return currentIndex + daysInAWeek - 1;
+        return currentIndex + (daysInAWeek - 1) * weeksInAYear;
     }
-    return currentIndex - 1;
+    return currentIndex - weeksInAYear;
 }
 
 function moveDown(currentIndex) {
     if (isLastDayOfWeek(currentIndex)) {
-        return currentIndex - daysInAWeek + 1;
+        return currentIndex - (daysInAWeek - 1) * weeksInAYear;
     }
-    return currentIndex + 1;
+    return currentIndex + weeksInAYear;
 }
 
 function moveRight(currentIndex) {
     if (isLastWeekDayOfYear(currentIndex)) {
-        return currentIndex - daysInAWeek*weeksInAYear;
+        return currentIndex - weeksInAYear + 1;
     }
-    return currentIndex + daysInAWeek;
+    return currentIndex + 1;
 }
 
 function moveLeft(currentIndex) {
     if (isFirstWeekDayOfYear(currentIndex)) {
-        return currentIndex + daysInAWeek*weeksInAYear;
+        return currentIndex + weeksInAYear - 1;
     }
-    return currentIndex - daysInAWeek;
+    return currentIndex - 1;
 }
 
 function computeStartDate(date) {
@@ -108,24 +108,7 @@ function getLongMonthFromDate(date) {
     return date.monthLong;
 }
 
-function initDay(days, dayIndex) {
-    const date = startDate.plus({ days: dayIndex });
-    if (date < today || date < DateTime.fromISO(document.getElementById("start-date").value)) {
-        days[dayIndex].setAttribute("visibility", "hidden");
-    } else {
-        days[dayIndex].setAttribute("visibility", "visible");
-        days[dayIndex].setAttribute("data-date", date.toISODate());
-    }
-
-    const endOfMonth = date.endOf("month");
-    if ((date.weekday === WEEK_STARTS_ON_DAY && date.day >= 1 && date.day <= 7)
-        || dayIndex === 0 && date < endOfMonth.minus({ days: 7 })) {
-        days[dayIndex].parentNode.firstElementChild.innerHTML = getShortMonthFromDate(date);
-        days[dayIndex].parentNode.firstElementChild.setAttribute("aria-label", getLongMonthFromDate(date));
-    }
-}
-
-function initCalendar() {
+function resetCalendar() {
     const months = document.getElementsByClassName("month");
     const days = document.getElementsByClassName("day");
 
@@ -133,8 +116,26 @@ function initCalendar() {
         months[monthIndex].innerHTML = "";
     }
 
-    for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
-        initDay(days, dayIndex);
+    for (let weekIndex = 0; weekIndex < weeksInAYear; weekIndex++) {
+        for (let dayIndex = 0; dayIndex < daysInAWeek; dayIndex++) {
+            const currenDayIndex = weekIndex + dayIndex * weeksInAYear;
+            const currentDay = days[currenDayIndex];
+            const currentDate = startDate.plus({ days: dayIndex + weekIndex * daysInAWeek });
+
+            if (currentDate < today || currentDate < DateTime.fromISO(document.getElementById("start-date").value)) {
+                currentDay.setAttribute("visibility", "hidden");
+            } else {
+                currentDay.setAttribute("visibility", "visible");
+                currentDay.setAttribute("data-date", currentDate.toISODate());
+            }
+
+            const endOfMonth = currentDate.endOf("month");
+            if (currentDate.weekday === WEEK_STARTS_ON_DAY && currentDate.day >= 1 && currentDate.day <= 7
+                || weekIndex === 0 && currentDate < endOfMonth.minus({ days: daysInAWeek })) {
+                months[weekIndex].innerHTML = getShortMonthFromDate(currentDate);
+                months[weekIndex].setAttribute("aria-label", getLongMonthFromDate(currentDate));
+            }
+        }
     }
 }
 
@@ -153,7 +154,7 @@ function initStartDate() {
 
     document.getElementById("start-date").onchange = () => {
         startDate = computeStartDate(DateTime.fromISO(document.getElementById("start-date").value));
-        initCalendar();
+        resetCalendar();
     }
 }
 
@@ -172,16 +173,13 @@ function show(element) {
 }
 
 function showCursor(index) {
-    for (let energyIndex = 0; energyIndex < energyLevels.length; energyIndex++) {
-        hide(document.getElementById("energy-cursor").children[energyIndex]);
-    }
-    show(document.getElementById("energy-cursor").children[index]);
+    document.getElementById("energy-cursor").style.transform = "translateX(" + index * 15 + "px)";
+    show(document.getElementById("energy-cursor"));
+    document.getElementById("energy-label").innerHTML = energyLevels[index];
 }
 
 function hideCursor() {
-    for (let energyIndex = 0; energyIndex < energyLevels.length; energyIndex++) {
-        hide(document.getElementById("energy-cursor").children[energyIndex]);
-    }
+    hide(document.getElementById("energy-cursor"));
 }
 
 function updateEnergyLevel(element) {
@@ -223,23 +221,22 @@ window.onload = function () {
     }
 
     initStartDate();
+    resetCalendar();
 
     const days = document.getElementsByClassName("day");
     for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
-        const day = days[dayIndex];
+        const currentDay = days[dayIndex];
 
-        initDay(days, dayIndex);
-
-        day.onclick = () => {
-            updateContribution(day);
+        currentDay.onclick = () => {
+            updateContribution(currentDay);
         }
 
-        day.onkeydown = (event) => {
+        currentDay.onkeydown = (event) => {
             let newIndex = dayIndex;
             switch (event.key) {
                 case " ":
                 case "Enter":
-                    updateContribution(day);
+                    updateContribution(currentDay);
                     break;
                 case "ArrowRight":
                     do {
@@ -270,22 +267,22 @@ window.onload = function () {
             }
         }
 
-        day.onfocus = () => {
-            showCursor(parseInt(day.getAttribute("data-count")));
-            showDate(day);
+        currentDay.onmouseover = () => {
+            showCursor(parseInt(currentDay.getAttribute("data-count")));
+            showDate(currentDay);
         }
 
-        day.onblur = () => {
+        currentDay.onfocus = () => {
+            showCursor(parseInt(currentDay.getAttribute("data-count")));
+            showDate(currentDay);
+        }
+
+        currentDay.onblur = () => {
             hideCursor();
             hideDate();
         }
 
-        day.onmouseover = () => {
-            showCursor(parseInt(day.getAttribute("data-count")));
-            showDate(day);
-        }
-
-        day.onmouseout = () => {
+        currentDay.onmouseout = () => {
             hideCursor();
             hideDate();
         }
