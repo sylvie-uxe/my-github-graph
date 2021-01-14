@@ -288,18 +288,24 @@ window.onload = function () {
         }
     }
 
-    // TODO: show energy level onmouseover/onfocus
-    // const levels = document.querySelectorAll("rect.caption");
-    // for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
-    //     levels[levelIndex].onmouseover = () => {
-    //         // show(document.getElementById("energy-level-label"));
-    //         document.getElementById("energy-level").innerHTML = energyLevels[levelIndex];
-    //     }
+    const levels = document.querySelectorAll("rect.caption");
+    for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
+        levels[levelIndex].onmouseover = () => {
+            showCursor(levelIndex);
+        }
 
-    //     levels[levelIndex].onmouseout = () => {
-    //         hide(document.getElementById("energy-level-label"));
-    //     }
-    // }
+        levels[levelIndex].onfocus = () => {
+            showCursor(levelIndex);
+        }
+
+        levels[levelIndex].onmouseout = () => {
+            hideCursor();
+        }
+
+        levels[levelIndex].onlbur = () => {
+            hideCursor();
+        }
+    }
 }
 
 function updateContribution(day) {
