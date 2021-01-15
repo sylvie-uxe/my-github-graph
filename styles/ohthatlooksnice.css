@@ -82,14 +82,38 @@ figure {
     border: 1px solid #e1e4e8;
     padding: 10px;
     width: 100%;
+}
+
+.overflow {
+    width: 100%;
     overflow-x: scroll;
 }
 
-svg#calendar {
+figure svg {
     display: block;
-    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+}
+
+figcaption {
+    max-width: 828px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+svg#energy-caption {
+    max-width: 228px;
+    margin: 0;
+}
+
+svg#hovered-date-label {
+    max-width: 200px;
+    margin: 0;
+}
+
+svg#calendar {
+    margin-top: 20px;
 }
 
 rect {
@@ -261,8 +285,8 @@ nav ul, footer ul {
 }
 
 nav li {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-left: 40px;
     display: block;
 }
