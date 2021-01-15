@@ -9,6 +9,7 @@
 }
 
 html, body {
+    height: 100%;
     width: 100%;
 }
 
@@ -19,6 +20,8 @@ body {
 
 header {
     flex-shrink: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 main {
@@ -103,12 +106,15 @@ figcaption {
 }
 
 svg#energy-caption {
-    max-width: 228px;
     margin: 0;
 }
 
+#energy-cursor polygon{
+    stroke: 1px solid rgba(27,31,35,0.06);
+    fill: #6a737d;
+}
+
 svg#hovered-date-label {
-    max-width: 200px;
     margin: 0;
 }
 
@@ -143,11 +149,6 @@ text.caption {
 text.tooltip {
     font-size: 12px;
     fill: #24292e;
-}
-
-#energy-cursor polygon{
-    stroke: 1px solid rgba(27,31,35,0.06);
-    fill: #6a737d;
 }
 
 input[type="date"] {
@@ -271,6 +272,7 @@ nav ul li:first-child {
 
 nav svg {
     fill: white;
+    display: block;
 }
 
 nav svg:hover {
@@ -285,8 +287,6 @@ nav ul, footer ul {
 }
 
 nav li {
-    padding-top: 10px;
-    padding-bottom: 10px;
     margin-left: 40px;
     display: block;
 }
