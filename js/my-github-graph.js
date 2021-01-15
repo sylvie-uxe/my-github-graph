@@ -172,6 +172,20 @@ function show(element) {
     }
 }
 
+function disableButtonSet() {
+    document.getElementById("clear").disabled = true;
+    document.getElementById("save-as-image").disabled = true;
+    document.getElementById("save-as-calendar").classList.add("disabled");
+    document.getElementById("save-as-calendar").setAttribute("tabindex", "-1");
+}
+
+function enableButtonSet() {
+    document.getElementById("clear").disabled = false;
+    document.getElementById("save-as-image").disabled = false;
+    document.getElementById("save-as-calendar").classList.remove("disabled");
+    document.getElementById("save-as-calendar").removeAttribute("tabindex");
+}
+
 function showCursor(index) {
     document.getElementById("energy-cursor").style.transform = "translateX(" + index * 15 + "px)";
     show(document.getElementById("energy-cursor"));
@@ -193,7 +207,7 @@ window.onload = function () {
     const clearButton = document.getElementById("clear");
     clearButton.onclick = (event) => {
         resetColor();
-        hide(document.getElementById("buttonset"));
+        disableButtonSet();
     }
 
     document.getElementById("save-as-image").onclick = () => {
@@ -311,7 +325,7 @@ window.onload = function () {
 function updateContribution(day) {
     updateEnergyLevel(day);
     showCursor(parseInt(day.getAttribute("data-count")));
-    show(document.getElementById("buttonset"));
+    enableButtonSet();
 }
 
 function hideDate() {
