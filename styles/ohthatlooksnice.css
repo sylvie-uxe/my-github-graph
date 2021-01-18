@@ -39,25 +39,26 @@ footer {
 
 header * {
     color: #f5f6f7;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 footer * {
     color: #f5f6f7;
     font-weight: lighter;
-    font-size: 12px;
-}
-
-header a, footer a {
-    font-weight: bolder;
+    font-size: 13px;
     text-decoration: none;
-    color: #f5f6f7;
 }
 
 footer a {
-    font-size: 12px;
+    font-weight: bolder;
 }
 
-header a:hover, footer a:hover {
+nav i {
+    padding-left: 8px;
+}
+
+nav a:hover, nav .link:hover *, footer a:hover, footer .link:hover * {
     color: rgba(255,255,255,0.7);
 }
 
@@ -66,7 +67,7 @@ nav svg {
     display: block;
 }
 
-nav svg:hover {
+nav a svg:hover {
     fill: rgba(255,255,255,0.7);
 }
 
@@ -85,10 +86,6 @@ nav ul li:first-child {
 nav ul li, footer li {
     margin-left: 40px;
     display: block;
-}
-
-.icon {
-    padding-left: 10px;
 }
 
 nav ul, main, footer ul {
@@ -123,14 +120,14 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
 p, label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     margin-bottom: 20px;
 }

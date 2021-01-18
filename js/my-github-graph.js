@@ -32,6 +32,7 @@ function generateEvents() {
 }
 
 function generateCalendarFile() {
+    window.URL = window.URL || window.webkitURL;
     const data = [
         "BEGIN:VCALENDAR\n",
         "METHOD:PUBLISH\n",
@@ -203,6 +204,21 @@ function updateEnergyLevel(element) {
     element.setAttribute("fill", colors[dataCount]);
 }
 
+function updateContribution(day) {
+    updateEnergyLevel(day);
+    showCursor(parseInt(day.getAttribute("data-count")));
+    enableButtonSet();
+}
+
+function hideDate() {
+    hide(document.getElementById("hovered-date-label"));
+}
+
+function showDate(day) {
+    show(document.getElementById("hovered-date-label"));
+    document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
+}
+
 window.onload = function () {
     const clearButton = document.getElementById("clear");
     clearButton.onclick = (event) => {
@@ -320,19 +336,4 @@ window.onload = function () {
             hideCursor();
         }
     }
-}
-
-function updateContribution(day) {
-    updateEnergyLevel(day);
-    showCursor(parseInt(day.getAttribute("data-count")));
-    enableButtonSet();
-}
-
-function hideDate() {
-    hide(document.getElementById("hovered-date-label"));
-}
-
-function showDate(day) {
-    show(document.getElementById("hovered-date-label"));
-    document.getElementById("hovered-date").innerHTML = DateTime.fromISO(day.getAttribute("data-date")).toLocaleString(DateTime.DATE_FULL);
 }
