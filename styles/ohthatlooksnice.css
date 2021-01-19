@@ -25,6 +25,7 @@ body {
 }
 
 header, footer {
+    width: 100%;
     flex-shrink: 0;
     background-color: #24292e;
 }
@@ -88,13 +89,28 @@ nav ul li, footer li {
     display: block;
 }
 
-nav ul, main, footer ul {
+main {
+    width: 1000px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+nav ul, footer ul {
     width: 1000px;
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+img {
+    width: 50%;
+    float: left;
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 40px;
 }
 
 @media screen and (max-width: 900px) {
@@ -106,30 +122,72 @@ nav ul, main, footer ul {
         margin-right: auto;
         margin-left: 0;
     }
+
+    img {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }
 
 section {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h1 {
     font-size: 28px;
     font-weight: 600;
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 h2 {
     font-size: 22px;
     font-weight: 400;
     margin-top: 15px;
-    margin-bottom: 15px;
 }
 
 p, label {
     font-size: 16px;
     font-weight: 400;
+    margin-top: 20px;
+}
+
+.redacted {
+    background-color: #24292e;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.flex-container article {
+    width: 300px;
+    box-shadow: 1px 1px 5px #d8d8d8;
+    padding: 10px;
+    margin: 10px;
+}
+
+article ul {
+    padding: 20px;
+    list-style-type: square;
+}
+
+article a {
+    color: rgb(60, 145, 194);
+}
+
+.flex-container h3 {
+    text-align: center;
+}
+
+.info {
+    color: rgb(60, 145, 194);
 }
 
 figure {
