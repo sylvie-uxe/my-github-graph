@@ -8,12 +8,6 @@
     outline: 3px solid rgba(21, 156, 228, 0.4);
 }
 
-html * {
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-    line-height: 1.5;
-    color: #24292e;
-}
-
 html, body {
     height: 100%;
     width: 100%;
@@ -22,6 +16,9 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    line-height: 1.5;
+    color: #24292e;
 }
 
 header, footer {
@@ -144,13 +141,21 @@ h1 {
 h2 {
     font-size: 22px;
     font-weight: 400;
-    margin-top: 15px;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 p, label {
     font-size: 16px;
     font-weight: 400;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .redacted {
@@ -174,12 +179,12 @@ p, label {
 }
 
 article ul {
-    padding: 20px;
+    padding-left: 20px;
     list-style-type: square;
 }
 
 article a {
-    color: rgb(60, 145, 194);
+    color: rgb(25, 103, 148);
 }
 
 .flex-container h3 {
@@ -199,7 +204,7 @@ figure {
 
 .overflow {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 figure svg {
@@ -235,10 +240,6 @@ svg#calendar {
 rect {
     outline: 1px solid rgba(27,31,35,0.06);
     outline-offset: -1px;
-}
-
-rect:focus {
-    outline: 3px solid rgba(21, 156, 228, 0.4);
 }
 
 text.month {
