@@ -178,6 +178,7 @@ function disableButtonSet() {
     document.getElementById("save-as-image").disabled = true;
     document.getElementById("save-as-calendar").classList.add("disabled");
     document.getElementById("save-as-calendar").setAttribute("tabindex", "-1");
+    document.getElementById("save-as-calendar").setAttribute("disabled", "true");
 }
 
 function enableButtonSet() {
@@ -185,6 +186,7 @@ function enableButtonSet() {
     document.getElementById("save-as-image").disabled = false;
     document.getElementById("save-as-calendar").classList.remove("disabled");
     document.getElementById("save-as-calendar").removeAttribute("tabindex");
+    document.getElementById("save-as-calendar").setAttribute("disabled", "false");
 }
 
 function showCursor(index) {

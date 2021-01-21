@@ -55,23 +55,23 @@
             </section>
             <section style="clear: left">
                 <h2>Blood, sweat and tears (of joy)</h2>
-                <p>Here's what I've learnt.</p>
+                <p>Here's what I've learnt. Click on <i class="fas fa-info-circle info" aria-label="info icon"></i> for more details.</p>
                 <div class="flex-container">
                     <article id="html">
                         <h3><i class="fab fa-html5 fa-4x"></i></h3>
                         <ul>
-                            <li><a href="#semantic-html">Semantic HTML and its importance for accessibility and readability</a></li>
+                            <li>Semantic HTML and its importance for accessibility and readability <a href="#semantic-html" aria-label="More details about how I used semantic HTML"><i class="fas fa-info-circle info"></i></a></li>
                             <li><abbr title="Scalable Vector Graphics">SVG</abbr></li>
-                            <li><a href="#download-attribute">Download attribute</a></li>
-                            <li><a href="#favicon">Dark/light-themed SVG favicon</i></a></li>
-                            <li>Accessibility best practices, <abbr title="Accessible Rich Internet Applications">ARIA</abbr> labels and roles</i></li>
+                            <li>Download attribute <a href="#download-attribute" aria-label="More details about the download attribute"><i class="fas fa-info-circle info"></i></a></li>
+                            <li>Dark/light-themed SVG favicon <a href="#favicon" aria-label="More details about dark and light themed SVG favicon"><i class="fas fa-info-circle info"></i></a></li>
+                            <li>Accessibility best practices, <abbr title="Accessible Rich Internet Applications">ARIA</abbr> labels and roles <a href="#accessibility" aria-label="More details about how I followed some accessibility best practices"><i class="fas fa-info-circle info"></i></a></li>
                             <li>Twitter card</li>
                         </ul>
                     </article>
                     <article id="css">
                         <h3><i class="fab fa-css3 fa-4x"></i></h3>
                         <ul>
-                            <li><a href="#focus-style">Element focus styling for accessibility</a></li>
+                            <li>Element focus styling for accessibility <a href="#focus-style" aria-label="More details about how to style focused elements"><i class="fas fa-info-circle info"></i></a></li>
                             <li>Fancy selectors (select elements with attribute=<i>x</i>, with id <i>y</i>, only an element's first child, etc</li>
                             <li>SVG styling (some properties can be specified in CSS directly)</li>
                             <li>CSS transitions</li>
@@ -93,9 +93,10 @@
                             <li>Visual Studio Code: how to speed up my work with <a href="https://code.visualstudio.com/docs/editor/emmet" rel="noopener noreferrer" target="_blank">Emmet</a>, <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" rel="noopener noreferrer" target="_blank">ESLint</a>, <a href="https://marketplace.visualstudio.com/items?itemName=dzhavat.css-flexbox-cheatsheet" rel="noopener noreferrer" target="_blank">CSS Flexbox Cheatsheet</a></li>
                             <li>Node.js and npm</li>
                             <li>Firebase hosting and Firebase CLI</li>
-                            <li><a href="#voiceover">VoiceOver screen reader to test accessibility</a></li>
-                            <li>Adobe Illustrator for the logo</li>
+                            <li>VoiceOver screen reader to test accessibility <a href="#voiceover" aria-label="More details about how I used the Apple screen reader VoiceOver"><i class="fas fa-info-circle info"></i></a></li>
+                            <li>Adobe Illustrator for the logo <a href="#adobe-illustrator" aria-label="More details about I customized a bit the GitHub logo for my project"><i class="fas fa-info-circle info"></i></a></li>
                             <li><a href="https://prismjs.com/" target="_blank" rel="noreferrer noopener">Prism</a> to highlight language keywords in &lt;code&gt; elements</li>
+                            <li><a href="https://moment.github.io/luxon/" target="_blank" rel="noreferrer noopener">Luxon</a> for the dates</li>
                         </ul>
                     </article>
                     <article>
@@ -159,13 +160,13 @@
 &lt;/footer&gt;</code></pre>
                     <p>At first, I used a table for the GitHub graph. Then, I had a look at GitHub.com and saw they were using a bunch of SVG rectangles for that. I thought it was a great opportunity to learn SVG so I did the same. However, in a real project, a table is preferrable because this is exactly what the GitHub graph is and it is semantically better.</p>
                     <p>When I could not use a semantic HTML element, I used specific ARIA roles so that the screen readers can at least make sense of them. I used one div to handle the overflow of the grid upon resizing.</p>
-                    <p>"I'd like to thank the academy":
+                    <p>My infinite gratitude goes to:
                         <ul>
                             <li><a target="_blank" rel="noreferrer noopener" href="https://www.w3schools.com/html/html5_semantic_elements.asp">W3Schools: HTML Semantic Elements</a></li>
                             <li><a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML">MDN Web Docs: HTML a good basis for accessibility</a></li>
                         </ul>
                     </p>
-                    <a href="#html">Back</a>
+                    <p><a href="#html">Back</a></p>
                 </article>
                 <article id="download-attribute">
                     <h3>Download attribute</h3>
@@ -196,13 +197,13 @@ saveAsCalButton.onkeydown = (event) => {
             return;
     }
 }</code></pre>
-                    <p>"I'd like to thank the academy":
+                    <p>My infinite gratitude goes to:
                         <ul>
                             <li><a target="_blank" rel="noreferrer noopener" href="https://css-tricks.com/building-good-download-button">CSS Tricks: building a good download... button?</a></li>
                             <li><a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">MDN Web Docs: the anchor element</a></li>
                         </ul>
                     </p>
-                    <a href="#html">Back</a>
+                    <p><a href="#html">Back</a></p>
                 </article>
                 <article id="favicon">
                     <h3>Dark/light-themed SVG favicon</h3>
@@ -225,12 +226,23 @@ saveAsCalButton.onkeydown = (event) => {
                     <p>Favicon as SVG is not yet fully supported so it's always good to use a good ol' icon as a backup</p>
                     <pre><code class="language-html">&lt;link rel="icon" type="image/svg+xml" href="./assets/icon.svg"&gt;
 &lt;link rel="alternate icon" href="./assets/favicon.ico"&gt;</code></pre>
-                    <p>"I'd like to thank the academy":
+                    <p>My infinite gratitude goes to:
                         <ul>
                             <li><a target="_blank" rel="noreferrer noopener" href="https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them">CSS Tricks: SVG, Favicons, and all the fun things we can do with them</a></li>
                         </ul>
                     </p>
-                    <a href="#html">Back</a>
+                    <p><a href="#html">Back</a></p>
+                </article>
+                <article id="accessibility">
+                    <h3>Accessibility best practices, ARIA labels and roles</h3>
+                    <p>I read the excellent MDN Web Docs guide about accessibility and then I unplugged my mouse. This is when I realized the GitHub graph was not accessible using my keyboard at all. I fixed it by adding <code>tabindex="0"</code> to the gridcells. I also added some ARIA roles to some HTML elements. where it made sense: for instance, the anchor element for downloading a calendar version of the graph has the <code>role="button"</code>.</p>
+                    <p>I also realized that the navigation in the grid was just nerve-wracking with a keyboard, pressing tab to go from one gridcell to another, so I decided to implement a navigation with arrow keys and the possibility to press Enter or Space to click on a gridcell.</p>
+                    <p>My infinite gratitude goes to:
+                        <ul>
+                            <li><a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">MDN Web Docs: Accessibility</a></li>
+                        </ul>
+                    </p>
+                    <p><a href="#html">Back</a></p>
                 </article>
                 <article id="focus-style">
                     <h3>Element focus styling for accessibility</h3>
@@ -243,7 +255,7 @@ saveAsCalButton.onkeydown = (event) => {
     outline: none;
     box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
 }</code></pre>
-                    <a href="#css">Back</a>
+                    <p><a href="#css">Back</a></p>
                 </article>
                 <article id="voiceover">
                     <h3>VoiceOver screen reader to test accessibility</h3>
@@ -252,17 +264,21 @@ saveAsCalButton.onkeydown = (event) => {
                     <pre><code class="language-html">&lt;text id="hovered-date" class="tooltip" role="alert" x="30" y="12"&gt;&lt;/text&gt;
 [...]
 &lt;text id="energy-label" class="tooltip" role="alert" text-anchor="end" x="124" y="37"&gt;&lt;/text&gt;</code></pre>
-                    <p>"I'd like to thank the academy":
+                    <p>My infinite gratitude goes to:
                         <ul>
                             <li><a target="_blank" rel="noreferrer noopener" href="https://webaim.org/articles/voiceover">WebAIM: using VoiceOver to evaluate web accessibility</a></li>
                         </ul>
                     </p>
-                    <a href="#tools">Back</a>
+                    <p><a href="#tools">Back</a></p>
                 </article>
                 <article id="adobe-illustrator">
                     <h3>Adobe Illustrator for the logo</h3>
-                    <p></p>
-                    <a href="#tools">Back</a>
+                    <p>I downloaded <a href="https://github.com/logos" target="_blank" rel="noreferrer noopener">the mark directly from GitHub</a> (thanks GitHub!). Then I used Abode Illustrator to add a cute painter cap and a brush to the mark, and export it as a SVG.</p>
+                    <video width="500px" type="video/mp4" controls>
+                        <source src="./assets/my-github-graph-logo.mp4">
+                            Sorry, your browser doesn't support embedded videos.
+                    </video>
+                    <p><a href="#tools">Back</a></p>
                 </article>
             </section>
         </main>
