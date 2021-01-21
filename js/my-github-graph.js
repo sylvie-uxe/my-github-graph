@@ -271,28 +271,32 @@ window.onload = function () {
                     updateContribution(currentDay);
                     break;
                 case "ArrowRight":
+                    event.preventDefault();
                     do {
                         newIndex = moveRight(newIndex);
                     } while (days[newIndex].getAttribute("visibility") !== "visible");
                     days[newIndex].focus();
                     break;
                 case "ArrowLeft":
+                    event.preventDefault();
                     do {
                         newIndex = moveLeft(newIndex);
                     } while (days[newIndex].getAttribute("visibility") !== "visible");
                     days[newIndex].focus();
                     break;
                 case "ArrowUp":
+                    event.preventDefault();
                     do {
                         newIndex = moveUp(newIndex);
                     } while (days[newIndex].getAttribute("visibility") !== "visible");
                     days[newIndex].focus();
                     break;
                 case "ArrowDown":
+                    event.preventDefault();
                     do {
                         newIndex = moveDown(newIndex);
                     } while (days[newIndex].getAttribute("visibility") !== "visible");
-                    days[newIndex].focus(); 
+                    days[newIndex].focus();
                     break;
                 default:
                     return;

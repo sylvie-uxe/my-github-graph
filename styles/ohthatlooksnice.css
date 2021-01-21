@@ -103,11 +103,30 @@ nav ul, footer ul {
 }
 
 img {
-    width: 50%;
     float: left;
     margin-top: 20px;
     margin-right: 40px;
     margin-bottom: 40px;
+    max-width: 500px;
+}
+
+figure.example {
+    margin: 20px auto 40px auto;
+    padding: 0;
+}
+
+.example img {
+    display: block;
+    margin: 10px auto 0 auto;
+    float: none;
+    max-width: 828px;
+}
+
+.example figcaption {
+    font-size: 12px;
+    text-align: center;
+    display: revert;
+    margin: 0 auto 10px auto;
 }
 
 @media screen and (max-width: 900px) {
@@ -121,9 +140,9 @@ img {
     }
 
     img {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
+        display: block;
+        margin: 20px auto;
+        float: none;
     }
 }
 
@@ -183,6 +202,10 @@ article ul {
     list-style-type: square;
 }
 
+article ul li {
+    margin-bottom: 8px;
+}
+
 article a {
     color: rgb(25, 103, 148);
 }
@@ -200,10 +223,10 @@ figure {
     border: 1px solid #e1e4e8;
     padding: 10px;
     width: 100%;
+    margin-top: 20px;
 }
 
 .overflow {
-    width: 100%;
     overflow-x: auto;
 }
 
@@ -341,4 +364,10 @@ button:disabled, [role="button"].disabled {
     background-color: #f5f6f7;
     border-color: rgba(27,31,35,0.05);
     color: #bbbbbb;
+}
+
+video {
+    display: block;
+    margin: auto;
+    max-width: 90%;
 }

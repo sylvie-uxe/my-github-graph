@@ -46,6 +46,8 @@
                     <img src="./assets/github-tweet@1x.png"
                         srcset="./assets/github-tweet@1x.png 593w,
                                 ./assets/github-tweet@2x.png 1186w"
+                        sizes="(max-width: 900px) 90vw,
+                               40vw"
                         alt="Someone tweeted quote What's stopping you from coding like this question mark end of quote along with a screen capture of a GitHub graph with 14,489 contributions in the past year"/>
                 </a>
                 <p>Some replies pointed out that GitHub contribution graphs are irrelevant, in the sense that they don't inform on how good we are as a developer nor the quality of our contributions.</p>
@@ -97,6 +99,7 @@
                             <li>Adobe Illustrator for the logo <a href="#adobe-illustrator" aria-label="More details about I customized a bit the GitHub logo for my project"><i class="fas fa-info-circle info"></i></a></li>
                             <li><a href="https://prismjs.com/" target="_blank" rel="noreferrer noopener">Prism</a> to highlight language keywords in &lt;code&gt; elements</li>
                             <li><a href="https://moment.github.io/luxon/" target="_blank" rel="noreferrer noopener">Luxon</a> for the dates</li>
+                            <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener noreferrer">Lighthouse</a> for assessing the quality of the web pages</li>
                         </ul>
                     </article>
                     <article>
@@ -237,6 +240,18 @@ saveAsCalButton.onkeydown = (event) => {
                     <h3>Accessibility best practices, ARIA labels and roles</h3>
                     <p>I read the excellent MDN Web Docs guide about accessibility and then I unplugged my mouse. This is when I realized the GitHub graph was not accessible using my keyboard at all. I fixed it by adding <code>tabindex="0"</code> to the gridcells. I also added some ARIA roles to some HTML elements. where it made sense: for instance, the anchor element for downloading a calendar version of the graph has the <code>role="button"</code>.</p>
                     <p>I also realized that the navigation in the grid was just nerve-wracking with a keyboard, pressing tab to go from one gridcell to another, so I decided to implement a navigation with arrow keys and the possibility to press Enter or Space to click on a gridcell.</p>
+                    <p>Another problem I encountered was that while used to navigate the grid, the arrow keys were also triggering the scrolling in other elements of the web page! I fixed that by preventing the default behavior (scrolling) when an arrow key is pressed in the grid:</p>
+                    <pre><code class="language-js">currentDay.onkeydown = (event) => {
+    switch (event.key) {
+        [...]
+        case "ArrowDown":
+            event.preventDefault();
+            doStuff();
+            break;
+        default:
+            return;
+    }
+}</code></pre>
                     <p>My infinite gratitude goes to:
                         <ul>
                             <li><a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">MDN Web Docs: Accessibility</a></li>
@@ -274,7 +289,7 @@ saveAsCalButton.onkeydown = (event) => {
                 <article id="adobe-illustrator">
                     <h3>Adobe Illustrator for the logo</h3>
                     <p>I downloaded <a href="https://github.com/logos" target="_blank" rel="noreferrer noopener">the mark directly from GitHub</a> (thanks GitHub!). Then I used Abode Illustrator to add a cute painter cap and a brush to the mark, and export it as a SVG.</p>
-                    <video width="500px" type="video/mp4" controls>
+                    <video type="video/mp4" controls>
                         <source src="./assets/my-github-graph-logo.mp4">
                             Sorry, your browser doesn't support embedded videos.
                     </video>
