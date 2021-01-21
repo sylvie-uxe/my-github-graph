@@ -371,3 +371,7 @@ video {
     margin: auto;
     max-width: 90%;
 }
+
+details {
+    margin: 20px 0;
+}
