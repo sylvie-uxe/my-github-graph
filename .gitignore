@@ -1,0 +1,15 @@
+# Firebase cache
+.firebase/
+
+# Firebase config
+firebase.json
+.firebaserc
+
+# Dependency directories
+node_modules/
+
+# GitHub workflow
+.github
+
+# Desktop Services Store
+.DS_Store

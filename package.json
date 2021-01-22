@@ -1,0 +1,58 @@
+{
+  "name": "my-github-graph",
+  "version": "1.0.0",
+  "description": "Static website for drawing GitHub art",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:assets": "cp ./src/assets/* ./dist/assets",
+    "watch:assets": "onchange \"src/assets\" -- npm run build:assets",
+    "css:autoprefixer": "postcss ./src/css/*.css --use autoprefixer -d dist",
+    "css:lint": "stylelint src/css/*.css || true",
+    "build:css": "npm run css:lint && npm run css:autoprefixer",
+    "watch:css": "onchange \"src/css\" -- npm run build:css",
+    "build:js": "webpack --mode=production",
+    "watch:js": "onchange \"src/js\" -- webpack --mode=development",
+    "build:html": "posthtml -c posthtml.json",
+    "watch:html": "onchange \"src/views\" -- npm run build:html",
+    "serve": "browser-sync start --server \"dist\" --files \"dist\"",
+    "watch": "run-p serve watch:*",
+    "build": "run-p build:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sylvie-uxe/my-github-graph.git"
+  },
+  "keywords": [
+    "githubart",
+    "pixelart"
+  ],
+  "author": "Sylvie Donatien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sylvie-uxe/my-github-graph/issues"
+  },
+  "homepage": "https://github.com/sylvie-uxe/my-github-graph#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "autoprefixer": "^10.2.3",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.26.13",
+    "eslint": "^7.18.0",
+    "eslint-loader": "^4.0.2",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
+    "posthtml": "^0.15.1",
+    "posthtml-cli": "^0.9.1",
+    "posthtml-modules": "^0.6.4",
+    "stylelint": "^13.9.0",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0"
+  },
+  "dependencies": {
+    "luxon": "^1.25.0",
+    "save-svg-as-png": "^1.4.17"
+  }
+}
