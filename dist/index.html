@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head profile="http://www.w3.org/2005/10/profile">
+        <title>My GitHub Graph</title>
+        <meta name="description" content="A personal project I've done to learn and practice HTML, CSS and JavaScript that allows you to plan GitHub contributions that draw something on a GitHub graph.">
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+<link rel="alternate icon" href="./assets/favicon.ico">
+<link rel="mask-icon" href="./assets/icon.svg" color="#ffffff">
+<link rel="stylesheet" type="text/css" href="./ohthatlooksnice.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@sylvie_d__">
+<meta name="twitter:title" content="Draw your own GitHub contribution graph">
+<meta name="twitter:description" content="Useful? No. Relevant? No. Visually pleasing? Also no. Well, it all depends on your artistic skills...">
+<meta name="twitter:image" content="https://my-github-graph.web.app/assets/heart.png">
+<meta name="twitter:image:alt" content="Pixel art in a GitHub contribution graph using the four green shades associated to GitHub contributions">
+    </head>
+    <body>
+        <header>
+    <nav>
+        <ul>
+            <li>
+                <a href="./index.html" aria-label="Link to homepage">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30px">
+                        <path d="M14.29,0C6.69.37,0,7.49,0,15.29A15.34,15.34,0,0,0,10.26,30c.75.15,1-.33,1-.74s0-1.33,0-2.61c-4.17.93-5-2.06-5-2.06a4,4,0,0,0-1.67-2.25c-1.36-1,.11-.94.11-.94A3.16,3.16,0,0,1,6.94,23a3.15,3.15,0,0,0,4.37,1.27,3.31,3.31,0,0,1,.95-2.05c-3.33-.39-6.83-1.71-6.83-7.6A6,6,0,0,1,7,10.45a5.67,5.67,0,0,1,.15-4.07S8.25,6,10.8,7.66l.07-.25C8.89,6.3,7.73,5,8,3.93c.43-1.65,4.21-2,8.45-.88a16,16,0,0,1,5.28,2.42,10.84,10.84,0,0,1,1.42-1,.67.67,0,0,1,.91.25.69.69,0,0,1-.24.93l-.6.39-.28.2,0,0c3.21,2.08,5.2,4.43,4.59,5.57-.35.67-1.52.8-3.11.47l-.1.39a6.36,6.36,0,0,1,.28,1.9c0,5.9-3.51,7.2-6.85,7.59a3.69,3.69,0,0,1,1,2.84c0,2.06,0,3.72,0,4.22a.81.81,0,0,0,.11.43l2.34-4.13a1.55,1.55,0,0,1,0-1.94c.39-.41,1-.37,1.42-.71a1.51,1.51,0,0,0,.55-1.24.34.34,0,0,1,.34-.38h0c.66-.33,1,.71,1.07,1.18a4.43,4.43,0,0,1,.07,1.74,2.45,2.45,0,0,1-.83,1.68,2.12,2.12,0,0,1-1.27.36l-1.94,3.41A15.37,15.37,0,0,0,30,15.38,15.17,15.17,0,0,0,14.29,0Z"></path>
+                    </svg>
+                </a>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li class="link">
+                <a href="https://twitter.com/intent/tweet?url=https://my-github-graph.web.app&text=I'll%20take%20the%20year%20off%2C%20thank%20you">
+                    Share<i class="fab fa-twitter fa-lg"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+        <main>
+            <h1>Draw your own GitHub contribution graph!</h1>
+            <section>
+                <label for="start-date">I want to start committing on</label>
+                <input type="date" id="start-date" name="start-date" aria-label="Date of my first commits in GitHub">
+            </section>
+            <section>
+                <h2>Contributions</h2>
+                <figure>
+                    <div class="overflow">
+                        <svg id="calendar" width="828px" height="148px" viewBox="0 0 828 148" xmlns="http://www.w3.org/2000/svg" aria-label="This is an interactive calendar. Each day of the year to come is represented by a cell in this calendar view. Click on a cell to increase the number of GitHub contributions you plan to do this day." role="grid">
+                            <g role="row">
+                                <text class="month" role="columnheader" x="30" y="10"></text>
+                                <text class="month" role="columnheader" x="45" y="10"></text>
+                                <text class="month" role="columnheader" x="60" y="10"></text>
+                                <text class="month" role="columnheader" x="75" y="10"></text>
+                                <text class="month" role="columnheader" x="90" y="10"></text>
+                                <text class="month" role="columnheader" x="105" y="10"></text>
+                                <text class="month" role="columnheader" x="120" y="10"></text>
+                                <text class="month" role="columnheader" x="135" y="10"></text>
+                                <text class="month" role="columnheader" x="150" y="10"></text>
+                                <text class="month" role="columnheader" x="165" y="10"></text>
+                                <text class="month" role="columnheader" x="180" y="10"></text>
+                                <text class="month" role="columnheader" x="195" y="10"></text>
+                                <text class="month" role="columnheader" x="210" y="10"></text>
+                                <text class="month" role="columnheader" x="225" y="10"></text>
+                                <text class="month" role="columnheader" x="240" y="10"></text>
+                                <text class="month" role="columnheader" x="255" y="10"></text>
+                                <text class="month" role="columnheader" x="270" y="10"></text>
+                                <text class="month" role="columnheader" x="285" y="10"></text>
+                                <text class="month" role="columnheader" x="300" y="10"></text>
+                                <text class="month" role="columnheader" x="315" y="10"></text>
+                                <text class="month" role="columnheader" x="330" y="10"></text>
+                                <text class="month" role="columnheader" x="345" y="10"></text>
+                                <text class="month" role="columnheader" x="360" y="10"></text>
+                                <text class="month" role="columnheader" x="375" y="10"></text>
+                                <text class="month" role="columnheader" x="390" y="10"></text>
+                                <text class="month" role="columnheader" x="405" y="10"></text>
+                                <text class="month" role="columnheader" x="420" y="10"></text>
+                                <text class="month" role="columnheader" x="435" y="10"></text>
+                                <text class="month" role="columnheader" x="450" y="10"></text>
+                                <text class="month" role="columnheader" x="465" y="10"></text>
+                                <text class="month" role="columnheader" x="480" y="10"></text>
+                                <text class="month" role="columnheader" x="495" y="10"></text>
+                                <text class="month" role="columnheader" x="510" y="10"></text>
+                                <text class="month" role="columnheader" x="525" y="10"></text>
+                                <text class="month" role="columnheader" x="540" y="10"></text>
+                                <text class="month" role="columnheader" x="555" y="10"></text>
+                                <text class="month" role="columnheader" x="570" y="10"></text>
+                                <text class="month" role="columnheader" x="585" y="10"></text>
+                                <text class="month" role="columnheader" x="600" y="10"></text>
+                                <text class="month" role="columnheader" x="615" y="10"></text>
+                                <text class="month" role="columnheader" x="630" y="10"></text>
+                                <text class="month" role="columnheader" x="645" y="10"></text>
+                                <text class="month" role="columnheader" x="660" y="10"></text>
+                                <text class="month" role="columnheader" x="675" y="10"></text>
+                                <text class="month" role="columnheader" x="690" y="10"></text>
+                                <text class="month" role="columnheader" x="705" y="10"></text>
+                                <text class="month" role="columnheader" x="720" y="10"></text>
+                                <text class="month" role="columnheader" x="735" y="10"></text>
+                                <text class="month" role="columnheader" x="750" y="10"></text>
+                                <text class="month" role="columnheader" x="765" y="10"></text>
+                                <text class="month" role="columnheader" x="780" y="10"></text>
+                                <text class="month" role="columnheader" x="795" y="10"></text>
+                                <text class="month" role="columnheader" x="810" y="10"></text>
+                            </g>
+                            <g role="row">
+                                <text text-anchor="start" class="weekday" role="rowheader" x="5" y="30" aria-label="Sunday"></text>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="30" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="45" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="60" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="75" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="90" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="105" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="120" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="135" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="150" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="165" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="180" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="195" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="210" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="225" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="240" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="255" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="270" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="285" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="300" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="315" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="330" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="345" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="360" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="375" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="390" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="405" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="420" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="435" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="450" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="465" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="480" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="495" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="510" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="525" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="540" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="555" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="570" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="585" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="600" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="615" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="630" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="645" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="660" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="675" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="690" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="705" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="720" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="735" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="750" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="765" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="780" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="795" y="20" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="810" y="20" data-count="0" data-date=""></rect>
+                            </g>
+                            <g role="row">
+                                <text text-anchor="start" class="weekday" role="rowheader" x="5" y="45" aria-label="Monday">Mon</text>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="30" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="45" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="60" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="75" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="90" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="105" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="120" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="135" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="150" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="165" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="180" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="195" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="210" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="225" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="240" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="255" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="270" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="285" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="300" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="315" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="330" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="345" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="360" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="375" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="390" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="405" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="420" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="435" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="450" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="465" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="480" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="495" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="510" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="525" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="540" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="555" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="570" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="585" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="600" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="615" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="630" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="645" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="660" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="675" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="690" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="705" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="720" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="735" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="750" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="765" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="780" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="795" y="35" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="810" y="35" data-count="0" data-date=""></rect>
+                            </g>
+                            <g role="row">
+                                <text text-anchor="start" class="weekday" role="rowheader" x="5" y="60" aria-label="Tuesday"></text>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="30" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="45" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="60" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="75" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="90" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="105" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="120" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="135" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="150" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="165" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="180" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="195" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="210" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="225" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="240" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="255" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="270" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="285" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="300" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="315" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="330" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="345" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="360" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="375" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="390" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="405" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="420" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="435" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="450" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="465" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="480" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="495" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="510" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="525" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="540" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="555" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="570" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="585" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="600" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="615" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="630" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="645" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="660" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="675" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="690" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="705" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="720" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="735" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="750" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="765" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="780" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="795" y="50" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="810" y="50" data-count="0" data-date=""></rect>
+                            </g>
+                            <g role="row">
+                                <text text-anchor="start" class="weekday" role="rowheader" x="5" y="75" aria-label="Wednesday">Wed</text>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="30" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="45" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="60" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="75" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="90" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="105" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="120" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="135" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="150" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="165" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="180" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="195" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="210" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="225" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="240" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="255" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="270" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="285" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="300" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="315" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="330" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="345" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="360" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="375" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="390" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="405" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="420" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="435" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="450" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="465" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="480" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="495" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="510" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="525" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="540" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="555" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="570" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="585" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="600" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="615" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="630" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="645" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="660" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="675" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="690" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="705" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="720" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="735" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="750" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="765" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="780" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="795" y="65" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="810" y="65" data-count="0" data-date=""></rect>
+                            </g>
+                            <g role="row">
+                                <text text-anchor="start" class="weekday" role="rowheader" x="5" y="91" aria-label="Thursday"></text>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="30" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="45" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="60" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="75" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="90" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="105" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="120" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="135" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="150" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="165" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="180" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="195" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="210" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="225" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="240" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="255" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="270" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="285" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="300" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="315" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="330" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="345" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="360" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="375" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="390" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="405" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="420" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="435" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="450" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="465" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="480" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="495" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="510" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="525" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="540" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="555" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="570" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="585" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="600" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="615" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="630" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="645" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="660" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="675" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="690" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="705" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="720" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="735" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="750" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="765" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="780" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="795" y="80" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="810" y="80" data-count="0" data-date=""></rect>
+                            </g>
+                            <g role="row">
+                                <text text-anchor="start" class="weekday" role="rowheader" x="5" y="105" aria-label="Friday">Fri</text>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="30" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="45" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="60" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="75" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="90" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="105" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="120" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="135" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="150" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="165" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="180" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="195" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="210" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="225" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="240" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="255" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="270" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="285" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="300" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="315" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="330" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="345" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="360" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="375" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="390" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="405" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="420" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="435" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="450" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="465" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="480" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="495" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="510" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="525" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="540" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="555" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="570" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="585" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="600" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="615" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="630" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="645" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="660" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="675" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="690" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="705" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="720" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="735" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="750" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="765" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="780" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="795" y="95" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="810" y="95" data-count="0" data-date=""></rect>
+                            </g>
+                            <g role="row">
+                                <text text-anchor="start" class="weekday" role="rowheader" x="5" y="120" aria-label="Saturday"></text>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="30" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="45" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="60" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="75" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="90" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="105" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="120" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="135" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="150" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="165" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="180" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="195" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="210" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="225" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="240" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="255" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="270" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="285" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="300" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="315" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="330" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="345" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="360" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="375" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="390" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="405" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="420" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="435" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="450" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="465" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="480" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="495" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="510" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="525" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="540" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="555" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="570" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="585" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="600" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="615" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="630" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="645" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="660" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="675" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="690" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="705" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="720" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="735" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="750" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="765" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="780" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="795" y="110" data-count="0" data-date=""></rect>
+                                <rect class="day" role="gridcell" aria-labelledby="hovered-date energy-label" tabindex="0" contenteditable="true" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="810" y="110" data-count="0" data-date=""></rect>
+                            </g>
+                        </svg>
+                    </div>
+                    <figcaption>
+                        <svg id="hovered-date-label" class="hidden" width="140px" height="30px" viewBox="0 0 140 30">
+                            <text id="hovered-date" class="tooltip" role="alert" x="30" y="12"></text>
+                        </svg>
+                        <svg id="energy-caption" width="228px" height="40px" viewBox="0 0 228 40">
+                            <g>
+                                <text class="caption" x="98" y="12" text-anchor="end">Less</text>
+                                <rect class="caption" tabindex="0" aria-labelledby="energy-label" fill="#f5f6f7" rx="2" ry="2" width="11" height="11" x="113" y="2"></rect>
+                                <rect class="caption" tabindex="0" aria-labelledby="energy-label" fill="#9be9a8" rx="2" ry="2" width="11" height="11" x="128" y="2"></rect>
+                                <rect class="caption" tabindex="0" aria-labelledby="energy-label" fill="#40c463" rx="2" ry="2" width="11" height="11" x="143" y="2"></rect>
+                                <rect class="caption" tabindex="0" aria-labelledby="energy-label" fill="#30a14e" rx="2" ry="2" width="11" height="11" x="158" y="2"></rect>
+                                <rect class="caption" tabindex="0" aria-labelledby="energy-label" fill="#216e39" rx="2" ry="2" width="11" height="11" x="173" y="2"></rect>
+                                <text class="caption" x="221" y="12" text-anchor="end" aria-hidden="true">More</text>
+                            </g>
+                            <g id="energy-cursor" class="hidden">
+                                <polygon points="113,23 118.5,17 124,23"></polygon>
+                                <text id="energy-label" class="tooltip" role="alert" text-anchor="end" x="124" y="37"></text>
+                            </g>
+                        </svg>
+                    </figcaption>
+                </figure>
+                <ul id="buttonset">
+                    <li><button id="clear" disabled="">Clear</button></li>
+                    <li><button id="save-as-image" disabled="">Save as Image</button></li>
+                    <li><a id="save-as-calendar" class="disabled" role="button" href="#" tabindex="-1" download="my-github-graph.ics" aria-disabled="true">Save as Calendar</a></li>
+                </ul>
+            </section>
+            <details>
+                <summary>Sky's the limit (if its size is 7 by 53 pixels). Here's some inspiration!</summary>
+                <figure class="example">
+                    <div class="overflow">
+                        <img src="./assets/your-grandpa-s-bathroom-tile.png" alt="GitHub contribution graph entirely filled in with a regular pattern as a tile">
+                    </div>
+                    <figcaption>Your grandpa's bathroom tile</figcaption>
+                </figure>
+                <figure class="example">
+                    <div class="overflow">
+                        <img src="./assets/i-love-coding.png" alt="GitHub contribution graph where contributions draw the letters I love coding semi-column">
+                    </div>
+                    <figcaption>The obvious</figcaption>
+                </figure>
+                <figure class="example">
+                    <div class="overflow">
+                        <img src="./assets/random-pixel-art.png" alt="GitHub contribution graph with some random drawings such as a cactus, a heart , snowflakes and a Space invader">
+                    </div>
+                    <figcaption>A Dali-esque fever dream</figcaption>
+                </figure>
+            </details>
+        </main>
+        <footer>
+    <ul>
+        <li>Design shamefully stolen from <a target="_blank" rel="noreferrer noopener" href="https://github.com/">GitHub.com</a> / Code by Sylvie Donatien</li>
+        <li class="link"><a target="_blank" rel="noreferrer noopener" href="https://twitter.com/sylvie_d__" aria-label="Link to Sylvie Donatien's Twitter account"><i class="fab fa-twitter fa-2x"></i></a></li>
+        <li class="link"><a target="_blank" rel="noreferrer noopener" href="https://github.com/sylvie-uxe/my-github-graph" aria-label="Link to the GitHub repository of this website"><i class="fab fa-github fa-2x"></i></a></li>
+    </ul>
+</footer>
+
+        <script src="./my-github-graph.dist.js"></script>
+    </body>
+</html>
