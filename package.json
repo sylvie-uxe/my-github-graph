@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build:assets": "cp ./src/assets/* ./dist/assets",
+    "watch:assets": "onchange \"src/assets\" -- npm run build:assets",
     "css:autoprefixer": "postcss ./src/css/*.css --use autoprefixer -d dist",
     "css:lint": "stylelint src/css/*.css || true",
     "build:css": "npm run css:lint && npm run css:autoprefixer",
