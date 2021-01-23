@@ -1,5 +1,7 @@
 # My GitHub Graph
-Plan your next GitHub contributions to draw some GitHub art!
+Plan your next GitHub contributions and draw some GitHub pixel art!
+
+![I love coding GitHub pixel art](dist/assets/i-love-coding.png)
 
 This is my first web project written in HTML, CSS and JavaScript, a good pretext for me to have fun and put into practice what I've been learning so far. To know more about this project: ```about.html```.
 
