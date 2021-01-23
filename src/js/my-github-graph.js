@@ -132,8 +132,9 @@ function resetCalendar() {
             }
 
             const endOfMonth = currentDate.endOf("month");
-            if (currentDate.weekday === WEEK_STARTS_ON_DAY && currentDate.day >= 1 && currentDate.day <= 7
-                || weekIndex === 0 && currentDate < endOfMonth.minus({ days: daysInAWeek })) {
+            if (currentDate.weekday === WEEK_STARTS_ON_DAY &&
+                ((currentDate.day >= 1 && currentDate.day <= 7)
+                || (weekIndex === 0 && currentDate < endOfMonth.minus({ days: daysInAWeek })))) {
                 months[weekIndex].innerHTML = getShortMonthFromDate(currentDate);
                 months[weekIndex].setAttribute("aria-label", getLongMonthFromDate(currentDate));
             }
