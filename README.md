@@ -3,7 +3,7 @@ Plan your next GitHub contributions to draw some GitHub art!
 
 This is my first web project written in HTML, CSS and JavaScript, a good pretext for me to have fun and put into practice what I've been learning so far. To know more about this project: ```about.html```.
 
-## Website structure
+## Project structure
 
 * src
   * assets: all the images, SVG and video used in the website
