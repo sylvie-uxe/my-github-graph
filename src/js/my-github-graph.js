@@ -178,17 +178,17 @@ function show(element) {
 function disableButtonSet() {
     document.getElementById("clear").disabled = true;
     document.getElementById("save-as-image").disabled = true;
-    document.getElementById("save-as-calendar").classList.add("disabled");
-    document.getElementById("save-as-calendar").setAttribute("tabindex", "-1");
-    document.getElementById("save-as-calendar").setAttribute("disabled", "true");
+    document.getElementById("add-to-calendar").classList.add("disabled");
+    document.getElementById("add-to-calendar").setAttribute("tabindex", "-1");
+    document.getElementById("add-to-calendar").setAttribute("disabled", "true");
 }
 
 function enableButtonSet() {
     document.getElementById("clear").disabled = false;
     document.getElementById("save-as-image").disabled = false;
-    document.getElementById("save-as-calendar").classList.remove("disabled");
-    document.getElementById("save-as-calendar").removeAttribute("tabindex");
-    document.getElementById("save-as-calendar").setAttribute("disabled", "false");
+    document.getElementById("add-to-calendar").classList.remove("disabled");
+    document.getElementById("add-to-calendar").removeAttribute("tabindex");
+    document.getElementById("add-to-calendar").setAttribute("disabled", "false");
 }
 
 function showCursor(index) {
@@ -239,7 +239,7 @@ window.onload = function () {
         SvgUtil.saveSvgAsPng(document.getElementById("calendar"), "my-github-graph.png", options);
     };
 
-    const saveAsCalButton = document.getElementById("save-as-calendar");
+    const saveAsCalButton = document.getElementById("add-to-calendar");
     saveAsCalButton.onclick = (event) => {
         event.target.href = generateCalendarFile();
     };
