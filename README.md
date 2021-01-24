@@ -42,6 +42,7 @@ The rest of the dependencies are handled by NPM and listed in ```package.json```
 
 ```bash
 npm install
+npm run build
 npm run serve
 ```
 
